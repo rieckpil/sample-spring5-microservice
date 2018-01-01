@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgres://localhost:5432/sample_application_dev
+    username: sample_dev_user
+    password: changeme
+    platform: postgresql
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    show-sql: true
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: sample_database_create.sql
