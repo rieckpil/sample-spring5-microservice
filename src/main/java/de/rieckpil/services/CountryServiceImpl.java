@@ -20,4 +20,8 @@ public class CountryServiceImpl implements CountryService {
         return countryRepository.findAll();
     }
 
+    @Override
+    public int getAmountOfCountries() {
+        return getAllCountries().size();
+    }
 }

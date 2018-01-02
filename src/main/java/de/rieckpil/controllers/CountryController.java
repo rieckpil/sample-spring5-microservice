@@ -18,8 +18,14 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/")
+    @GetMapping({"/", ""})
     public List<Country> getCountries() {
         return countryService.getAllCountries();
+    }
+
+
+    @GetMapping("/amount")
+    public int getAmountOfCountries() {
+        return countryService.getAmountOfCountries();
     }
 }
