@@ -12,6 +12,10 @@ buildscript {
 	}
 }
 
+plugins {
+    id 'net.ltgt.apt' version '0.9'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -27,12 +31,13 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
+	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
+    apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
