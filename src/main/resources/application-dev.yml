@@ -19,3 +19,8 @@ spring:
             scripts:
               action: create
               create-target: sample_database_create.sql
+              
+security:
+  user:
+    name: dev
+    password: dev

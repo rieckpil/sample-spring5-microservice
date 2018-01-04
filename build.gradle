@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id 'net.ltgt.apt' version '0.9'
+    id 'net.ltgt.apt' version '0.10'
 }
 
 apply plugin: 'java'
@@ -38,6 +38,7 @@ dependencies {
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
     apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
+    apt('org.projectlombok:lombok:1.16.18')
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

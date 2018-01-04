@@ -1,23 +1,29 @@
 package de.rieckpil.services;
 
-import de.rieckpil.domain.Country;
-import de.rieckpil.repositories.CountryRepository;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import de.rieckpil.dtos.CountryDTO;
+import de.rieckpil.mapper.CountryMapper;
+import de.rieckpil.repositories.CountryRepository;
 
 @Service
 public class CountryServiceImpl implements CountryService {
 
     private CountryRepository countryRepository;
+    private CountryMapper countryMapper;
 
-    public CountryServiceImpl(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
-    }
+    public CountryServiceImpl(CountryRepository countryRepository, CountryMapper countryMapper) {
+		this.countryRepository = countryRepository;
+		this.countryMapper = countryMapper;
+	}
 
-    @Override
-    public List<Country> getAllCountries() {
-        return countryRepository.findAll();
+	@Override
+    public List<CountryDTO> getAllCountries() {
+		
+        return countryRepository.findAll().stream().map(countryMapper::countryToCountryDTO).collect(Collectors.toList());
     }
 
     @Override
