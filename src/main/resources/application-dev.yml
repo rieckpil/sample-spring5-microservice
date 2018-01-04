@@ -1,9 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgres://localhost:5432/sample_application_dev
+    url: jdbc:postgresql://localhost:5432/sample_application_dev
     username: sample_dev_user
     password: changeme
     platform: postgresql
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
