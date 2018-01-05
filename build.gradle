@@ -35,6 +35,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
     apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
