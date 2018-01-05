@@ -17,107 +17,115 @@ import de.rieckpil.repositories.CountryRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Profile({"dev", "prod"})
+@Profile({ "dev", "prod" })
 @Slf4j
-public class BootstrapPostgres implements CommandLineRunner{
+public class BootstrapPostgres implements CommandLineRunner {
 
-    private CountryRepository countryRepository;
+	private CountryRepository countryRepository;
 
-    public BootstrapPostgres(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
-    }
+	public BootstrapPostgres(CountryRepository countryRepository) {
+		this.countryRepository = countryRepository;
+	}
 
-    @Override
-    public void run(String... args) throws Exception {
-    	log.info("bootstraping postgres database ...");
-        countryRepository.save(getCountries());
-    }
+	@Override
+	public void run(String... args) throws Exception {
+		log.info("bootstraping postgres database ...");
 
-    private Iterable<Country> getCountries() {
+		if (countryRepository.count() == 0) {
+			log.info("initialize empty tables ...");
+			countryRepository.save(getCountries());
+		}else {
+			log.info("tables are already filled with data, no action required ...");
+		}
 
-        List<Country> countryList = new ArrayList<Country>();
+	}
 
-        Country germany = new Country();
-        germany.setName("Germany");
-        germany.setTimezone("Europe/Berlin");
-        germany.setDefaultLanguage("German");
-        germany.setCountryCode("DE");
-        germany.setLongitude(11.0);
-        germany.setLatitude(44.0);
+	private Iterable<Country> getCountries() {
 
-        City herzogenaurach = new City();
-        herzogenaurach.setCountry(germany);
-        herzogenaurach.setName("Herzogenaurach");
-        herzogenaurach.setLatitude(113.0);
-        herzogenaurach.setLongitude(56.1);
+		List<Country> countryList = new ArrayList<Country>();
 
-        City schweinfurt = new City();
-        schweinfurt.setCountry(germany);
-        schweinfurt.setName("Scheinfurt");
-        schweinfurt.setLongitude(75.0);
-        schweinfurt.setLatitude(33.0);
+		Country germany = new Country();
+		germany.setName("Germany");
+		germany.setTimezone("Europe/Berlin");
+		germany.setDefaultLanguage("German");
+		germany.setCountryCode("DE");
+		germany.setLongitude(11.0);
+		germany.setLatitude(44.0);
 
-        germany.setCities(Arrays.asList(herzogenaurach, schweinfurt));
+		City herzogenaurach = new City();
+		herzogenaurach.setCountry(germany);
+		herzogenaurach.setName("Herzogenaurach");
+		herzogenaurach.setLatitude(113.0);
+		herzogenaurach.setLongitude(56.1);
 
-        Plant iws = new Plant();
-        iws.setName("IWS");
-        iws.setCity(herzogenaurach);
+		City schweinfurt = new City();
+		schweinfurt.setCountry(germany);
+		schweinfurt.setName("Schweinfurt");
+		schweinfurt.setLongitude(75.0);
+		schweinfurt.setLatitude(33.0);
 
-        herzogenaurach.setPlants(Arrays.asList(iws));
+		germany.setCities(Arrays.asList(herzogenaurach, schweinfurt));
 
-        Hall g1 = new Hall();
-        g1.setDescription("Administration");
-        g1.setName("G1");
-        g1.setPlant(iws);
+		Plant iws = new Plant();
+		iws.setName("IWS");
+		iws.setAbbreviation("IWS 01");
+		iws.setCity(herzogenaurach);
 
-        iws.setHalls(Arrays.asList(g1));
-        Machine m1 = new Machine();
-        m1.setName("M1");
-        m1.setHall(g1);
+		herzogenaurach.setPlants(Arrays.asList(iws));
 
-        g1.setMachines(Arrays.asList(m1));
+		Hall g1 = new Hall();
+		g1.setDescription("Administration");
+		g1.setName("G1");
+		g1.setPlant(iws);
 
-       countryList.add(germany);
+		iws.setHalls(Arrays.asList(g1));
+		Machine m1 = new Machine();
+		m1.setName("M1");
+		m1.setHall(g1);
 
-        Country france = new Country();
-        france.setName("France");
-        france.setCountryCode("FRA");
-        france.setDefaultLanguage("french");
-        france.setTimezone("Europe/Paris");
-        france.setLatitude(55.0);
-        france.setLongitude(66.0);
+		g1.setMachines(Arrays.asList(m1));
 
-        City paris = new City();
-        paris.setName("Paris");
-        paris.setCountry(france);
-        paris.setLatitude(55.6);
-        paris.setLongitude(44.0);
+		countryList.add(germany);
 
-        france.setCities(Arrays.asList(paris));
+		Country france = new Country();
+		france.setName("France");
+		france.setCountryCode("FRA");
+		france.setDefaultLanguage("french");
+		france.setTimezone("Europe/Paris");
+		france.setLatitude(55.0);
+		france.setLongitude(66.0);
 
-        Plant pp1 = new Plant();
-        pp1.setName("Paris Plant I");
-        pp1.setAbbreviation("PP1");
-        pp1.setCity(paris);
+		City paris = new City();
+		paris.setName("Paris");
+		paris.setCountry(france);
+		paris.setLatitude(55.6);
+		paris.setLongitude(44.0);
 
-        paris.setPlants(Arrays.asList(pp1));
+		france.setCities(Arrays.asList(paris));
 
-        Hall g4 = new Hall();
-        g4.setName("G4");
-        g4.setPlant(pp1);
-        g4.setDescription("IT-Administration");
+		Plant pp1 = new Plant();
+		pp1.setName("Paris Plant I");
+		pp1.setAbbreviation("PP1");
+		pp1.setCity(paris);
 
-        pp1.setHalls(Arrays.asList(g4));
+		paris.setPlants(Arrays.asList(pp1));
 
-        Machine m2 = new Machine();
-        m2.setName("Machine 2");
-        m2.setHall(g4);
+		Hall g4 = new Hall();
+		g4.setName("G4");
+		g4.setPlant(pp1);
+		g4.setDescription("IT-Administration");
 
-        g4.setMachines(Arrays.asList(m2));
+		pp1.setHalls(Arrays.asList(g4));
 
-        countryList.add(france);
+		Machine m2 = new Machine();
+		m2.setName("Machine 2");
+		m2.setHall(g4);
 
-        return countryList;
+		g4.setMachines(Arrays.asList(m2));
 
-    }
+		countryList.add(france);
+
+		return countryList;
+
+	}
 }
