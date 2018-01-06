@@ -3,7 +3,7 @@ package de.rieckpil.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import de.rieckpil.services.CountryService;
 
 @Controller
@@ -15,7 +15,7 @@ public class PageController {
 		this.countryService = countryService;
 	}
 	
-	@RequestMapping("/countryList")
+	@RequestMapping(value= "/countryList", method = RequestMethod.GET)
 	public String getCountryListPage(Model model) {
 		
 		model.addAttribute("countries", countryService.getAllCountries());
