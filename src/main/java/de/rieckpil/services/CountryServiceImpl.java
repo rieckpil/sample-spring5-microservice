@@ -22,12 +22,11 @@ public class CountryServiceImpl implements CountryService {
 
 	@Override
     public List<CountryDTO> getAllCountries() {
-		
         return countryRepository.findAll().stream().map(countryMapper::countryToCountryDTO).collect(Collectors.toList());
     }
 
     @Override
-    public int getAmountOfCountries() {
+    public int getAmountOfStoredCountries() {
         return getAllCountries().size();
     }
 }

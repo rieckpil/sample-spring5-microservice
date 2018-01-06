@@ -27,6 +27,6 @@ public class CountryController {
 
     @GetMapping("/amount")
     public int getAmountOfCountries() {
-        return countryService.getAmountOfCountries();
+        return countryService.getAmountOfStoredCountries();
     }
 }

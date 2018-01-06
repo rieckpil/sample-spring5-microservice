@@ -17,7 +17,7 @@ import de.rieckpil.repositories.CountryRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Profile({ "dev", "prod" })
+@Profile({"dev"})
 @Slf4j
 public class BootstrapPostgres implements CommandLineRunner {
 

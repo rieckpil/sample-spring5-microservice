@@ -8,5 +8,5 @@ public interface CountryService {
 
     List<CountryDTO> getAllCountries();
 
-    int getAmountOfCountries();
+    int getAmountOfStoredCountries();
 }
