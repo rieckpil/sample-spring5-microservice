@@ -1,10 +1,11 @@
 package de.rieckpil.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-
+import de.rieckpil.domain.Country;
 import de.rieckpil.dtos.CountryDTO;
 import de.rieckpil.mapper.CountryMapper;
 import de.rieckpil.repositories.CountryRepository;
@@ -28,5 +29,17 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public int getAmountOfStoredCountries() {
         return getAllCountries().size();
+    }
+
+    @Override
+    public CountryDTO getCountryByName(String countryName) {
+      
+      Optional<Country> optionalCountry = countryRepository.findByName(countryName);
+      
+      if(!optionalCountry.isPresent()) {
+        throw new RuntimeException("Country not found");
+      }
+      
+      return countryMapper.countryToCountryDTO(optionalCountry.get());
     }
 }

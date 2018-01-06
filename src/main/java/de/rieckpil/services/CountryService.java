@@ -9,4 +9,6 @@ public interface CountryService {
     List<CountryDTO> getAllCountries();
 
     int getAmountOfStoredCountries();
+
+    CountryDTO getCountryByName(String countryName);
 }
