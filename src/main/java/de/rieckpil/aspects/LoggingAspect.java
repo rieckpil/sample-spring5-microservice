@@ -29,6 +29,8 @@ public class LoggingAspect {
    * POINTCUT DECLARATION WITH @Pointcut
    *    -> reusable
    *    -> one place for definition
+   *    
+   * COMBINING POINTCUTS: ("expressionOne() && !expressionTwo()") 
    * 
    */
   
