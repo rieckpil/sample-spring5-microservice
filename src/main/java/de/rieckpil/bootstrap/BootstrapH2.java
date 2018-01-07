@@ -30,6 +30,16 @@ public class BootstrapH2 implements CommandLineRunner {
   private Iterable<Country> getCountries() {
 
     List<Country> countryList = new ArrayList<Country>();
+    
+    Country us = new Country();
+    us.setName("United States of America");
+    us.setTimezone("Europe/Berlin");
+    us.setCountryCode("USA");
+    us.setDefaultLanguage("English");
+    us.setLongitude(11.0);
+    us.setLatitude(44.0);
+    
+    countryList.add(us);
 
     Country germany = new Country();
     germany.setName("Germany");
