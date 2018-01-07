@@ -1,5 +1,6 @@
 package de.rieckpil.dtos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -14,6 +15,6 @@ public class CountryDTO {
 	private String timezone;
 	private String defaultLanguage;
 	private String countryCode;
-	private List<CityDTO> cities;
+	private List<CityDTO> cities = new ArrayList<CityDTO>();
 
 }

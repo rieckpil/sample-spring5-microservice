@@ -11,4 +11,6 @@ public interface CountryService {
     int getAmountOfStoredCountries();
 
     CountryDTO getCountryByName(String countryName);
+
+    void createNewCountry(CountryDTO country);
 }

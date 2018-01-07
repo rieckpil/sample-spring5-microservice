@@ -42,4 +42,10 @@ public class CountryServiceImpl implements CountryService {
       
       return countryMapper.countryToCountryDTO(optionalCountry.get());
     }
+
+    @Override
+    public void createNewCountry(CountryDTO country) {
+      Country countryToSave = countryMapper.countryDTOToCountry(country);
+      countryRepository.save(countryToSave);
+    }
 }
