@@ -13,4 +13,6 @@ public interface CountryService {
     CountryDTO getCountryByName(String countryName);
 
     void createNewCountry(CountryDTO country);
+
+    void deleteByCountryName(String countryName);
 }

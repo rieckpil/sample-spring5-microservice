@@ -3,6 +3,7 @@ package de.rieckpil.controllers;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,10 @@ public class CountryController {
   @GetMapping("/amount")
   public int getAmountOfCountries() {
     return countryService.getAmountOfStoredCountries();
+  }
+
+  @DeleteMapping("/{countryName}")
+  public void deleteCountryByName(@PathVariable("countryName") final String countryName) {
+    countryService.deleteByCountryName(countryName);
   }
 }

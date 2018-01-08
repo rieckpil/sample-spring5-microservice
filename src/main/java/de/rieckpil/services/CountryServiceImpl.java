@@ -55,4 +55,16 @@ public class CountryServiceImpl implements CountryService {
       throw new RuntimeException("Constraint violations!");
     }
   }
+
+  @Override
+  public void deleteByCountryName(String countryName) {
+    
+    Optional<Country> country = countryRepository.findByName(countryName);
+    
+    if(!country.isPresent()) {
+      throw new RuntimeException(String.format("Country with name: '%s' not found!", countryName));
+    }
+    
+    countryRepository.delete(country.get());
+  }
 }
