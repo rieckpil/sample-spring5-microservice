@@ -35,7 +35,7 @@ public class CountryServiceImpl implements CountryService {
   @Override
   public CountryDTO getCountryByName(String countryName) {
 
-    Optional<Country> optionalCountry = countryRepository.findByName(countryName);
+    Optional<Country> optionalCountry = countryRepository.findValidByName(countryName);
 
     if (!optionalCountry.isPresent()) {
       throw new RuntimeException("Country not found");

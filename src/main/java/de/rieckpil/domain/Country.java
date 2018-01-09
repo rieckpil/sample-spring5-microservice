@@ -44,6 +44,6 @@ public class Country {
   @UpdateTimestamp
   private Date lastUpdatedAt;
 
-  @Column(name = "VALID_TO", nullable = false)
+  @Column(nullable = false)
   private Date validTo =  new Date(4000000000000L);
 }
