@@ -1,11 +1,13 @@
 package de.rieckpil.domain;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import lombok.Data;
 
 @Entity
@@ -20,4 +22,10 @@ public class Machine {
 
   @ManyToOne
   private Hall hall;
+
+  @CreationTimestamp
+  public Date createdAt;
+
+  @UpdateTimestamp
+  private Date lastUpdatedAt;
 }
