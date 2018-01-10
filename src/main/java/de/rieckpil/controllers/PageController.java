@@ -8,19 +8,23 @@ import de.rieckpil.services.CountryService;
 
 @Controller
 public class PageController {
-	
-	private CountryService countryService;
 
-	public PageController(CountryService countryService) {
-		this.countryService = countryService;
-	}
-	
-	@RequestMapping(value= "/countryList", method = RequestMethod.GET)
-	public String getCountryListPage(Model model) {
-		
-		model.addAttribute("countries", countryService.getAllCountries());
+  private CountryService countryService;
 
-		return "countryList";
-	}
-	
+  public PageController(CountryService countryService) {
+    this.countryService = countryService;
+  }
+
+  @RequestMapping(value = "/countryList", method = RequestMethod.GET)
+  public String getCountryListPage(Model model) {
+
+    model.addAttribute("countries", countryService.getAllCountries());
+
+    return "countryList";
+  }
+
+  @RequestMapping(value = "/country/new", method = RequestMethod.GET)
+  public String createNewCountry(Model model) {
+    return "countryForm";
+  }
 }
