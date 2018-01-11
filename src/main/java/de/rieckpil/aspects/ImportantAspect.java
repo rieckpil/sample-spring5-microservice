@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import de.rieckpil.dtos.CountryDTO;
 import lombok.extern.slf4j.Slf4j;
 
 @Aspect
@@ -45,10 +47,22 @@ public class ImportantAspect {
       log.info(String.format("Length of returned objects: %s", resultList.size()));
     }
 
+    if (result instanceof CountryDTO) {
+      CountryDTO resultDTO = (CountryDTO) result;
+      resultDTO.setName("Ouch! Name got modified by Aspect x)");
+    }
+
     log.info(result.toString());
-    
+
     log.info(String.format(
         "\n ===> @AfterReturining: method %s in de.rieckpil.controllers.* called at: %s",
-        "to be filled", new Date().getTime()));
+        joinPoint.getSignature().getName(), new Date().getTime()));
+  }
+
+  @AfterThrowing(pointcut = "forControllerMethods()", throwing = "theExc")
+  public void logAfterThrowingAllMethodsInPackage(JoinPoint joinPoint, Throwable theExc) {
+
+    log.info(String.format("\n xxxx> @AfterThrowing: method '%s' throwed an error: %s <xxxx",
+        joinPoint.getSignature().getName(), theExc.getClass().getSimpleName()));
   }
 }

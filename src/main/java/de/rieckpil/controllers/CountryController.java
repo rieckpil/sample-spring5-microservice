@@ -37,6 +37,9 @@ public class CountryController {
 
   @GetMapping("/{countryName}")
   public CountryDTO getCountryByName(@PathVariable("countryName") final String countryName) {
+    if (countryName.equals("ThrowMe")) {
+      throw new RuntimeException("unavailable country requested!");
+    }
     return countryService.getCountryByName(countryName);
   }
 
