@@ -1,6 +1,7 @@
 package de.rieckpil.controllers;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,6 +46,14 @@ public class CountryController {
 
   @GetMapping("/amount")
   public int getAmountOfCountries() {
+
+    try {
+      TimeUnit.SECONDS.sleep(5);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
     return countryService.getAmountOfStoredCountries();
   }
 

@@ -3,8 +3,10 @@ package de.rieckpil.aspects;
 import java.util.Date;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -64,5 +66,19 @@ public class ImportantAspect {
 
     log.info(String.format("\n xxxx> @AfterThrowing: method '%s' throwed an error: %s <xxxx",
         joinPoint.getSignature().getName(), theExc.getClass().getSimpleName()));
+  }
+  
+  @Around("execution(* de.rieckpil.controllers.CountryController.getAmountOfCountries())")
+  public Object afterGetCall(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    
+    long begin = System.currentTimeMillis();
+    
+    Object result = proceedingJoinPoint.proceed();
+    
+    long end = System.currentTimeMillis();
+    
+    log.info(String.format("Getting the amount of countries took %s milliseconds", (end-begin)));
+    
+    return result;
   }
 }
