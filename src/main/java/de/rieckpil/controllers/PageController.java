@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import de.rieckpil.dtos.CountryDTO;
 import de.rieckpil.services.CountryService;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 public class PageController {
 
 	private CountryService countryService;
@@ -40,7 +42,9 @@ public class PageController {
 	@RequestMapping(value = "/country", method = RequestMethod.POST)
 	public String createNewCountry(@Valid @ModelAttribute("country") CountryDTO countryToSave, BindingResult bindingResult) {
 
-		System.out.println(countryToSave.toString());
+		log.info(String.format("Saving new country with name: '%s'", countryToSave.getName()));
+		
+		countryService.createNewCountry(countryToSave);
 
 		return "redirect:/countryList";
 	}
