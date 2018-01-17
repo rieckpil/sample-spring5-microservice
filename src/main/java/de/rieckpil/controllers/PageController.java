@@ -40,10 +40,21 @@ public class PageController {
 	}
 
 	@RequestMapping(value = "/country", method = RequestMethod.POST)
-	public String createNewCountry(@Valid @ModelAttribute("country") CountryDTO countryToSave, BindingResult bindingResult) {
+	public String createNewCountry(@Valid @ModelAttribute("country") CountryDTO countryToSave,
+			BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+
+			bindingResult.getAllErrors().forEach(objectError -> {
+				log.debug(objectError.toString());
+			});
+
+			return "countryForm";
+
+		}
 
 		log.info(String.format("Saving new country with name: '%s'", countryToSave.getName()));
-		
+
 		countryService.createNewCountry(countryToSave);
 
 		return "redirect:/countryList";
