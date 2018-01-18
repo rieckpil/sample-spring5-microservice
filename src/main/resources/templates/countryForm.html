@@ -49,6 +49,11 @@
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputName"
 										name="name" placeholder="Name" th:field="*{name}"></input>
+										 <span class="help-block" th:if="${#fields.hasErrors('name')}">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('name')}" th:text="${err}"/>
+                                        </ul>
+                                    </span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -58,6 +63,11 @@
 									<input type="text" class="form-control" id="inputCode"
 										name="countryCode" placeholder="Country Code"
 										th:field="*{countryCode}"></input>
+										  <span class="help-block" th:if="${#fields.hasErrors('countryCode')}">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('countryCode')}" th:text="${err}"/>
+                                        </ul>
+                                    </span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -66,6 +76,11 @@
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputTimezone"
 										name="timezone" placeholder="Zeitzone" th:field="*{timezone}"></input>
+										  <span class="help-block" th:if="${#fields.hasErrors('timezone')}">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('timezone')}" th:text="${err}"/>
+                                        </ul>
+                                    </span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -75,6 +90,11 @@
 									<input type="text" class="form-control"
 										id="inputDefaultLanguage" name="defaultLanguage"
 										placeholder="Default Language" th:field="*{defaultLanguage}"></input>
+										  <span class="help-block" th:if="${#fields.hasErrors('defaultLanguage')}">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('defaultLanguage')}" th:text="${err}"/>
+                                        </ul>
+                                    </span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -101,18 +121,6 @@
 							</div>
 						</form>
 
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3>Lorem ipsum dolor sit amet!</h3>
-					</div>
-					<div class="panel-body">
-						<p>Some text..</p>
 					</div>
 				</div>
 			</div>
