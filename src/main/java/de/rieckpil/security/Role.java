@@ -12,25 +12,22 @@ import lombok.Data;
 
 @Entity
 @Data
-public class User {
+public class Role {
   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
  
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private boolean enabled;
-    private boolean tokenExpired;
+    private String name;
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
  
     @ManyToMany
-    @JoinTable( 
-        name = "users_roles", 
+    @JoinTable(
+        name = "roles_privileges", 
         joinColumns = @JoinColumn(
-          name = "user_id", referencedColumnName = "id"), 
+          name = "role_id", referencedColumnName = "id"), 
         inverseJoinColumns = @JoinColumn(
-          name = "role_id", referencedColumnName = "id")) 
-    private Collection<Role> roles;
+          name = "privilege_id", referencedColumnName = "id"))
+    private Collection<Privilege> privileges;   
 }
