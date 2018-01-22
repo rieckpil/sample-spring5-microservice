@@ -1,14 +1,27 @@
 package de.rieckpil.bootstrap;
 
-import de.rieckpil.domain.*;
-import de.rieckpil.repositories.*;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import javax.transaction.Transactional;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+import de.rieckpil.domain.City;
+import de.rieckpil.domain.Country;
+import de.rieckpil.domain.Hall;
+import de.rieckpil.domain.Machine;
+import de.rieckpil.domain.Plant;
+import de.rieckpil.repositories.CountryRepository;
+import de.rieckpil.repositories.PrivilegeRepository;
+import de.rieckpil.repositories.RoleRepository;
+import de.rieckpil.repositories.UserRepository;
+import de.rieckpil.security.Privilege;
+import de.rieckpil.security.Role;
+import de.rieckpil.security.User;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Profile({"default"})
@@ -17,20 +30,39 @@ public class BootstrapH2 implements CommandLineRunner {
 
   private CountryRepository countryRepository;
 
-  public BootstrapH2(CountryRepository countryRepository) {
+  private UserRepository userRepository;
+
+  private RoleRepository roleRepository;
+
+  private PrivilegeRepository privilegeRepository;
+
+  private PasswordEncoder passwordEncoder;
+
+  public BootstrapH2(CountryRepository countryRepository, UserRepository userRepository,
+      RoleRepository roleRepository, PrivilegeRepository privilegeRepository,
+      PasswordEncoder passwordEncoder) {
+
     this.countryRepository = countryRepository;
+    this.userRepository = userRepository;
+    this.roleRepository = roleRepository;
+    this.privilegeRepository = privilegeRepository;
+    this.passwordEncoder = passwordEncoder;
   }
 
   @Override
   public void run(String... args) throws Exception {
     log.info("bootstraping H2 database ...");
-    countryRepository.save(getCountries());
+    loadInitialCountries();
+    loadInitialUsers();
   }
 
-  private Iterable<Country> getCountries() {
+  @Transactional
+  private void loadInitialCountries() {
+
+    log.info("loading initial countries ...");
 
     List<Country> countryList = new ArrayList<Country>();
-    
+
     Country us = new Country();
     us.setName("United States of America");
     us.setTimezone("Europe/Berlin");
@@ -38,7 +70,7 @@ public class BootstrapH2 implements CommandLineRunner {
     us.setDefaultLanguage("English");
     us.setLongitude(11.0);
     us.setLatitude(44.0);
-    
+
     countryList.add(us);
 
     Country germany = new Country();
@@ -122,8 +154,54 @@ public class BootstrapH2 implements CommandLineRunner {
 
     countryList.add(france);
 
-    return countryList;
+    countryRepository.save(countryList);
+  }
 
+  @Transactional
+  public void loadInitialUsers() {
+    
+    log.info("loading initial users ...");
+
+    Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
+    Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+
+    List<Privilege> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
+    createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
+    createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
+
+    Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+    User user = new User();
+    user.setFirstName("Philip");
+    user.setLastName("Riecks");
+    user.setPassword(passwordEncoder.encode("test"));
+    user.setEmail("test@test.com");
+    user.setRoles(Arrays.asList(adminRole));
+    user.setEnabled(true);
+    userRepository.save(user);
+  }
+
+  @Transactional
+  private Privilege createPrivilegeIfNotFound(String name) {
+
+    Privilege privilege = privilegeRepository.findByName(name);
+    if (privilege == null) {
+      privilege = new Privilege(name);
+      privilegeRepository.save(privilege);
+    }
+    return privilege;
+  }
+
+  @Transactional
+  private Role createRoleIfNotFound(String name, Collection<Privilege> privileges) {
+
+    Role role = roleRepository.findByName(name);
+
+    if (role == null) {
+      role = new Role(name);
+      role.setPrivileges(privileges);
+      roleRepository.save(role);
+    }
+    return role;
   }
 
 }
