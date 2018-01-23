@@ -1,6 +1,11 @@
 spring:
   datasource:
     platform: h2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
   h2:
     console:
       enabled: true

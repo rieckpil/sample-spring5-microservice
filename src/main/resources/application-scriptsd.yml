@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    platform: h2
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
+    show-sql: true
+    properties: 
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: src/main/resources/scripts/h2-schema.sql
