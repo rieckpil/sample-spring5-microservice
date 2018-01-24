@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>File upload</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"></link>
+
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container-fluid" style="margin-top: 20px">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-primary">
+
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-md-6">
+								<h1 class="panel-title">Upload a file!</h1>
+							</div>
+							<div class="col-md-6">
+								<a class="btn btn-default pull-right" href="#"
+									th:href="@{'/countryList'}">View all uploaded files!</a>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal" th:action="@{'/upload-file'}"
+							method="post" enctype="multipart/form-data">
+							<div th:if="${message != null}" class="alert alert-info">
+								<p th:text="${message}"></p>
+							</div>
+
+							<div class="form-group">
+								<label for="name" class="col-sm-3 control-label">Name: </label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="name" name="name"
+										placeholder="Name"></input>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputCode" class="col-sm-3 control-label">File
+								</label>
+								<div class="col-sm-9">
+									<input type="file" class="form-control" id="file" name="file"></input>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-8 col-sm-4">
+									<button type="submit" class="btn btn-default pull-right">Upload</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
