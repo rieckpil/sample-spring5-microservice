@@ -1,6 +1,7 @@
 create sequence hibernate_sequence start 1 increment 1
 create table city (id int8 not null, created_at timestamp, last_updated_at timestamp, latitude float8 not null, longitude float8 not null, name varchar(255), country_id int8, primary key (id))
 create table country (id int8 not null, country_code varchar(255), created_at timestamp, default_language varchar(255) not null, last_updated_at timestamp, latitude float8 not null, longitude float8 not null, name varchar(255) not null, timezone varchar(255) not null, valid_to timestamp not null, primary key (id))
+create table file (id int8 not null, content_type varchar(255), file oid, file_name varchar(255), original_file_name varchar(255), size int8, primary key (id))
 create table hall (id int8 not null, created_at timestamp, description varchar(255), last_updated_at timestamp, name varchar(255), plant_id int8, primary key (id))
 create table machine (id int8 not null, created_at timestamp, last_updated_at timestamp, name varchar(255), hall_id int8, primary key (id))
 create table plant (id int8 not null, abbreviation varchar(255), created_at timestamp, last_updated_at timestamp, name varchar(255), city_id int8, primary key (id))
