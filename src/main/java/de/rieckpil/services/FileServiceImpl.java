@@ -12,7 +12,7 @@ import de.rieckpil.repositories.FileRepository;
 public class FileServiceImpl implements FileService {
 
   private final FileRepository fileRepository;
-  
+
   private static final String STARTING_PATH = "/tmp";
 
   public FileServiceImpl(FileRepository fileRepository) {
@@ -32,7 +32,8 @@ public class FileServiceImpl implements FileService {
   }
 
   private void storeFileInFilesystem(MultipartFile file) throws FileNotFoundException, IOException {
-    FileOutputStream outputStream = new FileOutputStream(STARTING_PATH + "/" + file.getOriginalFilename());
+    FileOutputStream outputStream = new FileOutputStream(
+        STARTING_PATH + "/" + System.currentTimeMillis() + file.getOriginalFilename());
     byte[] fileBytes = file.getBytes();
     outputStream.write(fileBytes);
     outputStream.close();
