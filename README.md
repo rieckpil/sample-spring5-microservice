@@ -3,5 +3,5 @@ Sample Spring 5 Microservice for evaluating new functionalities in following pro
 * Spring Security
 * Spring Web
 * Spring Data JPA
-* Spring Aspects
-* Thymeleaf/FreeMaker
+* Spring AOP
+* Thymeleaf
