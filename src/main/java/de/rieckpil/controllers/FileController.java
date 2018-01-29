@@ -1,6 +1,7 @@
 package de.rieckpil.controllers;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class FileController {
 
   @PostMapping
   public String storeUploadedFile(@RequestParam("name") String fileName,
-      @RequestParam("file") MultipartFile file, Model model) throws IOException {
+      @RequestParam("file") MultipartFile file, Model model) throws IOException, NoSuchAlgorithmException {
 
     log.info(
         String.format("Uploaded file '%s' with name '%s' has size of %s bytes and is of type: %s",

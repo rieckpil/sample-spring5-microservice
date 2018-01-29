@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class File {
+public class UploadFile {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
