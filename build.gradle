@@ -36,7 +36,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-freemaker')
+	compile("org.springframework.boot:spring-boot-devtools")
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
 	compile('org.aspectj:aspectjweaver:1.8.13')
