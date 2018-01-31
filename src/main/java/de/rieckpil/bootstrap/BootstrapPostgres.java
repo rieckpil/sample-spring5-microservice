@@ -33,7 +33,7 @@ public class BootstrapPostgres implements CommandLineRunner {
 
 		if (countryRepository.count() == 0) {
 			log.info("initialize empty tables ...");
-			countryRepository.save(getCountries());
+			countryRepository.saveAll(getCountries());
 		}else {
 			log.info("tables are already filled with data, no action required ...");
 		}

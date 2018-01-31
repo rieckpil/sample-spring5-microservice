@@ -2,12 +2,9 @@ package de.rieckpil.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
-
 import lombok.Data;
 
 @Data

@@ -154,7 +154,7 @@ public class BootstrapH2 implements CommandLineRunner {
 
     countryList.add(france);
 
-    countryRepository.save(countryList);
+    countryRepository.saveAll(countryList);
   }
 
   @Transactional
