@@ -7,7 +7,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import de.rieckpil.domain.City;
 import de.rieckpil.domain.Country;
@@ -36,17 +35,13 @@ public class BootstrapH2 implements CommandLineRunner {
 
   private PrivilegeRepository privilegeRepository;
 
-  private PasswordEncoder passwordEncoder;
-
   public BootstrapH2(CountryRepository countryRepository, UserRepository userRepository,
-      RoleRepository roleRepository, PrivilegeRepository privilegeRepository,
-      PasswordEncoder passwordEncoder) {
+      RoleRepository roleRepository, PrivilegeRepository privilegeRepository) {
 
     this.countryRepository = countryRepository;
     this.userRepository = userRepository;
     this.roleRepository = roleRepository;
     this.privilegeRepository = privilegeRepository;
-    this.passwordEncoder = passwordEncoder;
   }
 
   @Override
@@ -173,7 +168,7 @@ public class BootstrapH2 implements CommandLineRunner {
     User user = new User();
     user.setFirstName("Philip");
     user.setLastName("Riecks");
-    user.setPassword(passwordEncoder.encode("test"));
+    user.setPassword("test");
     user.setEmail("test@test.com");
     user.setRoles(Arrays.asList(adminRole));
     user.setEnabled(true);
