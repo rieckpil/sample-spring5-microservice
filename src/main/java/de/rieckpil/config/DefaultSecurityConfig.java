@@ -1,17 +1,21 @@
 package de.rieckpil.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 
+@Configuration
 @EnableWebSecurity
 @Profile({"default"})
 public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 
   // @formatter:off
+  @Override
   protected void configure(HttpSecurity http) throws Exception {
 		http
 		  .authorizeRequests()
@@ -22,7 +26,7 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 		    .anyRequest()
 		    .authenticated()
 		  .and()
-		    .httpBasic();
+		    .formLogin();
 		
 		// configurations for enabling h2-console behind Spring Security
 		http.csrf().disable();
@@ -31,12 +35,14 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
   }
   // @formatter:on
 
-  @Autowired
-  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    
+  @Override
+  public void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+    UserBuilder users = User.withDefaultPasswordEncoder();
+
     auth.inMemoryAuthentication()
-      .withUser("user").password("password").roles("USER").and()
-      .withUser("max").password("password").roles("ADMIN").and()
-      .withUser("tom").password("password").roles("MANAGER");
+        .withUser(users.username("user").password("password").roles("USER"))
+        .withUser(users.username("max").password("password").roles("USER"))
+        .withUser(users.username("mary").password("password").roles("ADMIN"));
   }
 }
