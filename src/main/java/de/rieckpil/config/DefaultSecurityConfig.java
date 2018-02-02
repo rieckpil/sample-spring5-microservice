@@ -19,14 +19,17 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
 		http
 		  .authorizeRequests()
-		  .antMatchers("/api/**", "/h2-console/**")
+		  .antMatchers("/api/**", "/h2-console/**", "/webjars/**")
 		  .permitAll()
-		  .and()
+		 .and()
 		    .authorizeRequests()
 		    .anyRequest()
 		    .authenticated()
-		  .and()
-		    .formLogin();
+		 .and()
+		    .formLogin()
+		      .loginPage("/loginPage")
+		      .loginProcessingUrl("/login")
+		      .permitAll();
 		
 		// configurations for enabling h2-console behind Spring Security
 		http.csrf().disable();
