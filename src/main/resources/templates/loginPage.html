@@ -10,59 +10,100 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous"></link>
 
-<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
+<style>
+body {
+	padding-top: 15px;
+	font-size: 12px
+}
+
+.main {
+	max-width: 320px;
+	margin: 0 auto;
+}
+
+.login-or {
+	position: relative;
+	font-size: 18px;
+	color: #aaa;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.span-or {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -2px;
+	margin-left: -25px;
+	background-color: #fff;
+	width: 50px;
+	text-align: center;
+}
+
+.hr-or {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+h3 {
+	text-align: center;
+	line-height: 300%;
+}
+</style>
 </head>
 <body>
-	<div class="container-fluid" style="margin-top: 20px">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-primary">
-
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-md-6">
-								<h1 class="panel-title">Login</h1>
-							</div>
-
-						</div>
+			<div class="main">
+				<h3>
+					Please Log In, or <a href="#">Sign Up</a>
+				</h3>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
 					</div>
-					<div class="panel-body">
-						<form class="form-horizontal" th:action="@{/login}" method="post">
-							<div th:if="${param.error}" class="alert alert-danger">
-								Invalid username and password.</div>
-							<div th:if="${param.logout}" class="alert alert-success">
-								You have been logged out.</div>
-							<div class="form-group">
-								<label for="inputName" class="col-sm-3 control-label">Username:
-								</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="inputUsername"
-										name="username" placeholder="Username" autofocus="autofocus"></input>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputCode" class="col-sm-3 control-label">Password</label>
-								<div class="col-sm-7">
-									<input type="password" class="form-control" id="inputPassword"
-										name="password" placeholder="Password"></input>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-8 col-sm-4">
-									<button type="submit" class="btn btn-default pull-right">Login</button>
-								</div>
-							</div>
-						</form>
-
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="#" class="btn btn-lg btn-info btn-block">Google</a>
 					</div>
 				</div>
+				<div class="login-or">
+					<hr class="hr-or">
+					<span class="span-or">or</span>
+				</div>
+
+				<form role="form" th:action="@{/login}" method="post">
+					<div th:if="${param.error}" class="alert alert-danger">
+						Invalid username and password.</div>
+					<div th:if="${param.logout}" class="alert alert-success">You
+						have been logged out.</div>
+					<div class="form-group">
+						<label for="inputUsername">Username</label> <input type="text"
+							class="form-control" id="inputUsername" autofocus="autofocus"
+							name="username">
+					</div>
+					<div class="form-group">
+						<a class="pull-right" href="#">Forgot password?</a> <label
+							for="inputPassword">Password</label> <input type="password"
+							class="form-control" id="inputPassword" name="password">
+					</div>
+					<div class="checkbox pull-right">
+						<label> <input type="checkbox"> Remember me
+						</label>
+					</div>
+					<button type="submit" class="btn btn btn-primary">Log In</button>
+				</form>
+
 			</div>
+
 		</div>
 	</div>
 </body>
