@@ -11,8 +11,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: postgresql
     show-sql: true
-              
-security:
-  user:
-    name: prod
-    password: prod
