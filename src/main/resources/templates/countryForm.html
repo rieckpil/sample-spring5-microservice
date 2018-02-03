@@ -10,12 +10,19 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous"></link>
 
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"
+	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+	crossorigin="anonymous"></script>
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 </head>
 <body>
+
+	<div th:include="fragments/header :: header"></div>
+
 	<div class="container-fluid" style="margin-top: 20px">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -45,12 +52,13 @@
 								</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputName"
-										name="name" placeholder="Name" th:field="*{name}"></input>
-										 <span class="help-block" th:if="${#fields.hasErrors('name')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('name')}" th:text="${err}"/>
-                                        </ul>
-                                    </span>
+										name="name" placeholder="Name" th:field="*{name}"></input> <span
+										class="help-block" th:if="${#fields.hasErrors('name')}">
+										<ul>
+											<li th:each="err : ${#fields.errors('name')}"
+												th:text="${err}" />
+										</ul>
+									</span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -59,12 +67,13 @@
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputCode"
 										name="countryCode" placeholder="Country Code"
-										th:field="*{countryCode}"></input>
-										  <span class="help-block" th:if="${#fields.hasErrors('countryCode')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('countryCode')}" th:text="${err}"/>
-                                        </ul>
-                                    </span>
+										th:field="*{countryCode}"></input> <span class="help-block"
+										th:if="${#fields.hasErrors('countryCode')}">
+										<ul>
+											<li th:each="err : ${#fields.errors('countryCode')}"
+												th:text="${err}" />
+										</ul>
+									</span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -73,11 +82,13 @@
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputTimezone"
 										name="timezone" placeholder="Zeitzone" th:field="*{timezone}"></input>
-										  <span class="help-block" th:if="${#fields.hasErrors('timezone')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('timezone')}" th:text="${err}"/>
-                                        </ul>
-                                    </span>
+									<span class="help-block"
+										th:if="${#fields.hasErrors('timezone')}">
+										<ul>
+											<li th:each="err : ${#fields.errors('timezone')}"
+												th:text="${err}" />
+										</ul>
+									</span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -87,11 +98,13 @@
 									<input type="text" class="form-control"
 										id="inputDefaultLanguage" name="defaultLanguage"
 										placeholder="Default Language" th:field="*{defaultLanguage}"></input>
-										  <span class="help-block" th:if="${#fields.hasErrors('defaultLanguage')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('defaultLanguage')}" th:text="${err}"/>
-                                        </ul>
-                                    </span>
+									<span class="help-block"
+										th:if="${#fields.hasErrors('defaultLanguage')}">
+										<ul>
+											<li th:each="err : ${#fields.errors('defaultLanguage')}"
+												th:text="${err}" />
+										</ul>
+									</span>
 								</div>
 							</div>
 							<div class="form-group">
