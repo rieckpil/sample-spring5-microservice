@@ -29,7 +29,10 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 		    .formLogin()
 		      .loginPage("/loginPage")
 		      .loginProcessingUrl("/login")
-		      .permitAll();
+		      .permitAll()
+		 .and()
+		    .logout()
+		    .permitAll();
 		
 		// configurations for enabling h2-console behind Spring Security
 		http.csrf().disable();
