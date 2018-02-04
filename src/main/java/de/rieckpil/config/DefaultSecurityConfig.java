@@ -22,6 +22,10 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 		  .antMatchers("/api/**", "/h2-console/**", "/webjars/**")
 		  .permitAll()
 		 .and()
+		  .authorizeRequests()
+		  .antMatchers("/system/**")
+		  .hasRole("ADMIN")
+		 .and()
 		    .authorizeRequests()
 		    .anyRequest()
 		    .authenticated()
@@ -32,7 +36,10 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 		      .permitAll()
 		 .and()
 		    .logout()
-		    .permitAll();
+		    .permitAll()
+		.and()
+		    .exceptionHandling()
+		    .accessDeniedPage("/access-denied");
 		
 		// configurations for enabling h2-console behind Spring Security
 		http.csrf().disable();
