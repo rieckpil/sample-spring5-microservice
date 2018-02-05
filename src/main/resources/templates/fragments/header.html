@@ -16,14 +16,16 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a>Hallo <span
-						th:text="${#authentication.getPrincipal().getUsername()}"></span>!</a>
-					</li>
+							th:text="${#authentication.getPrincipal().getUsername()}"></span>!
+					</a></li>
 
 					<li><a href="#" th:href="@{/countryList}">Country List</a></li>
 					<li><a href="#" th:href="@{/upload-file}">File Upload</a></li>
 					<li><a href="#" th:href="@{/system/info}">System Info</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="#">YOUR
+							ARE ADMIN!</a></li>
 					<li><a href="/signin" th:href="@{/signin}"> <span
 							class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign
 							in
