@@ -8,10 +8,11 @@ create table privilege (id bigint not null, name varchar(255), primary key (id))
 create table role (id bigint not null, name varchar(255), primary key (id))
 create table roles_privileges (role_id bigint not null, privilege_id bigint not null)
 create table upload_file (id bigint not null, content_type varchar(255), file blob, file_name varchar(255), original_file_name varchar(255), size bigint, primary key (id))
-create table user (id bigint not null, email varchar(255), enabled boolean not null, first_name varchar(255), last_name varchar(255), password varchar(255), token_expired boolean not null, primary key (id))
+create table user (id bigint not null, email varchar(255), enabled boolean not null, first_name varchar(255), last_name varchar(255), password varchar(255), token_expired boolean not null, username varchar(255) not null, primary key (id))
 create table users_roles (user_id bigint not null, role_id bigint not null)
 alter table country add constraint UK_oqixmig4k8qxc8oba3fl4gqkr unique (country_code)
 alter table country add constraint UK_llidyp77h6xkeokpbmoy710d4 unique (name)
+alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
 alter table city add constraint FKrpd7j1p7yxr784adkx4pyepba foreign key (country_id) references country
 alter table hall add constraint FKslrmete3v15aaiktpchvnchda foreign key (plant_id) references plant
 alter table machine add constraint FK2w5vg9k83pwwqy0mw90vox02q foreign key (hall_id) references hall
