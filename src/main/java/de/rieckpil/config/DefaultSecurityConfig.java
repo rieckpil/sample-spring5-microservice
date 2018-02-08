@@ -1,18 +1,26 @@
 package de.rieckpil.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 @Profile({"default"})
 public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
+
+  private final CustomizedUserDetailsService userDetailsService;
+
+  public DefaultSecurityConfig(CustomizedUserDetailsService userDetailsService) {
+    this.userDetailsService = userDetailsService;
+  }
 
   // @formatter:off
   @Override
@@ -51,11 +59,27 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   public void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-    UserBuilder users = User.withDefaultPasswordEncoder();
+    // UserBuilder users = User.withDefaultPasswordEncoder();
+    //
+    // auth.inMemoryAuthentication()
+    // .withUser(users.username("user").password("password").roles("USER"))
+    // .withUser(users.username("max").password("password").roles("USER"))
+    // .withUser(users.username("mary").password("password").roles("ADMIN"));
 
-    auth.inMemoryAuthentication()
-        .withUser(users.username("user").password("password").roles("USER"))
-        .withUser(users.username("max").password("password").roles("USER"))
-        .withUser(users.username("mary").password("password").roles("ADMIN"));
+    auth.authenticationProvider(authenticationProvider());
+
+  }
+
+  @Bean
+  public DaoAuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+    authProvider.setUserDetailsService(userDetailsService);
+    authProvider.setPasswordEncoder(encoder());
+    return authProvider;
+  }
+
+  @Bean
+  public PasswordEncoder encoder() {
+    return new BCryptPasswordEncoder(11);
   }
 }
