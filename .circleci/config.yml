@@ -40,12 +40,20 @@ jobs:
         
       # run tests!
       - run: gradle test
+  deploy:
+    docker:
+      - image: circleci/openjdk:8-jdk
       
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: sample-spring5-microservice
+    steps:
+      - run: echo "deployment coming"
+      
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - buildy
+      - deploy
+      
 
 
 
