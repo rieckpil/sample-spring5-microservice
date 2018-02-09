@@ -44,6 +44,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile("org.springframework.boot:spring-boot-devtools")
+	compile('com.google.protobuf:protobuf-java:3.5.1')
 	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
