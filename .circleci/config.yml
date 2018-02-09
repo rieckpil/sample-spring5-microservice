@@ -44,8 +44,8 @@ jobs:
 deployment:
   staging:
     branch: master
-      heroku:
-        appname: sample-spring5-microservice
+    heroku:
+      appname: sample-spring5-microservice
 
 
 
