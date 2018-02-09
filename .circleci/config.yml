@@ -40,6 +40,12 @@ jobs:
         
       # run tests!
       - run: gradle test
+      
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: sample-spring5-microservice
 
 
 
