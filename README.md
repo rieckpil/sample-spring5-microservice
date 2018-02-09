@@ -1,7 +1,7 @@
 # sample-spring5-microservice
 
 [![CircleCI](https://circleci.com/gh/rieckpil/sample-spring5-microservice/tree/master.svg?style=svg)](https://circleci.com/gh/rieckpil/sample-spring5-microservice/tree/master)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=sample-spring5-microservice)](https://sample-spring5-microservice.herokuapp.com/)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=sample-spring5-microservice&style=flat&svg=1)](https://sample-spring5-microservice.herokuapp.com/)
 
 (https://heroku-badge.herokuapp.com/?app=sample-spring5-microservice)
 
