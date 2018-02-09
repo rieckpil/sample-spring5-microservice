@@ -8,3 +8,11 @@ Sample Spring 5 Microservice for evaluating new functionalities in following pro
 * Spring Data JPA
 * Spring AOP
 * Thymeleaf
+
+## Protobuf
+
+Running `protoc` for compiling `.proto` files to Java classes:
+
+```shell
+protoc -I=. --java_out=../java nameOfProto.proto
+``
