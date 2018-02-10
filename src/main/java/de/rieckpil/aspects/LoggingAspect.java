@@ -1,15 +1,14 @@
 package de.rieckpil.aspects;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Date;
 import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import java.util.Date;
+import lombok.extern.slf4j.Slf4j;
 
-@Aspect
+//@Aspect
 @Component
 @Slf4j
 @Order(2)
