@@ -1,0 +1,17 @@
+syntax="proto3"; 
+
+option java_package = "de.rieckpil.protobuf";
+option java_outer_classname = "MessageProto";
+
+message Message {
+  string message = 1;
+  string source = 2;
+  enum MessageType {
+    CHAT = 0;
+    BOT = 1;
+    GENERATED = 2;
+    UNKOWN = 3;
+  }
+  MessageType messageType = 3;
+  int64 timestampCreated = 4;
+}
