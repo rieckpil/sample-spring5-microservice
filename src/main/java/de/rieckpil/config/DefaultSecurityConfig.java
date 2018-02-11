@@ -27,7 +27,7 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
 		http
 		  .authorizeRequests()
-		  .antMatchers("/api/**", "/h2-console/**", "/webjars/**")
+		  .antMatchers("/api/**", "/h2-console/**", "/webjars/**", "/register")
 		  .permitAll()
 		 .and()
 		  .authorizeRequests()
