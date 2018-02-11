@@ -5,9 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserPrincipal implements UserDetails {
-  
+
   private static final long serialVersionUID = -4466754300954333833L;
-  
+
   private User user;
 
   public UserPrincipal(User user) {
@@ -31,22 +31,22 @@ public class UserPrincipal implements UserDetails {
 
   @Override
   public boolean isAccountNonExpired() {
-    return true;
+    return user.isEnabled();
   }
 
   @Override
   public boolean isAccountNonLocked() {
-    return true;
+    return user.isEnabled();
   }
 
   @Override
   public boolean isCredentialsNonExpired() {
-    return true;
+    return user.isEnabled();
   }
 
   @Override
   public boolean isEnabled() {
-    return true;
+    return user.isEnabled();
   }
 
 }

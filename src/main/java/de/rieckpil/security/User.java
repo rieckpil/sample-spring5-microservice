@@ -28,8 +28,8 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private boolean enabled;
-    private boolean tokenExpired;
+    private boolean enabled = true;
+    private boolean tokenExpired = false;
  
     @ManyToMany
     @JoinTable( 
