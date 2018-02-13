@@ -49,7 +49,7 @@ public class AuthServiceImpl implements AuthService {
       }
     } else {
       throw new RegistrationException(
-          String.format("Username: '%s' already exists.", userToSave.getEmail()));
+          String.format("Username: '%s' already exists.", userToSave.getUsername()));
     }
 
   }

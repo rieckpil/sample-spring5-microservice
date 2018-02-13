@@ -2,10 +2,11 @@ package de.rieckpil.controllers;
 
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import com.rieckpil.exceptions.RegistrationException;
 import de.rieckpil.dtos.UserDTO;
 import de.rieckpil.services.AuthService;
@@ -26,15 +27,21 @@ public class AuthController {
     return "registerPage";
   }
 
-  @PostMapping("/register")
-  public String registerUser(@Valid @RequestBody UserDTO userToRegister,
-      BindingResult bindingResult) {
+  @GetMapping("/signUp")
+  public String getSignUpPage(Model model) {
+    model.addAttribute("user", new UserDTO());
+    return "signUp";
+  }
+
+  @PostMapping("/signUp")
+  public String registerUser(@Valid @ModelAttribute("user") UserDTO userToRegister,
+      BindingResult bindingResult, Model model) {
 
     if (bindingResult.hasErrors()) {
       bindingResult.getAllErrors().forEach(objectError -> {
         log.debug(objectError.toString());
       });
-      return "registerPage";
+      return "signUp";
     }
 
     try {
@@ -42,7 +49,8 @@ public class AuthController {
       return "redirect:/loginPage";
     } catch (RegistrationException e) {
       log.debug(e.getMessage());
-      return "registerPage";
+      model.addAttribute("error", e.getMessage());
+      return "signUp";
     }
 
   }
