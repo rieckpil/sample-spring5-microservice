@@ -26,9 +26,9 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="#">YOUR
 							ARE ADMIN!</a></li>
-					<li><a href="/signin" th:href="@{/signin}"> <span
+					<li><a href="/signin" th:href="@{/signUp}"> <span
 							class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign
-							in
+							Up
 					</a></li>
 					<li><a href="/logout" th:href="@{#}"
 						onclick="$('#form').submit();"> <span
