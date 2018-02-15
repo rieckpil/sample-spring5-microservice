@@ -18,13 +18,15 @@ public class AuthServiceImpl implements AuthService {
   private final UserMapper userMapper;
   private final RoleRepository roleRepository;
   private final PasswordEncoder passwordEncoder;
+  private final MailService mailService;
 
   public AuthServiceImpl(UserRepository userRepository, UserMapper userMapper,
-      RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+      RoleRepository roleRepository, PasswordEncoder passwordEncoder, MailService mailService) {
     this.userRepository = userRepository;
     this.userMapper = userMapper;
     this.roleRepository = roleRepository;
     this.passwordEncoder = passwordEncoder;
+    this.mailService = mailService;
   }
 
   @Override
@@ -42,6 +44,10 @@ public class AuthServiceImpl implements AuthService {
         userToSave.setPassword(passwordEncoder.encode(userToSave.getPassword()));
         userToSave.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
         userRepository.save(userToSave);
+        
+        if(userToSave.getEmail().equals("mail@philipriecks.de")) {
+          mailService.sendRegistrationMail(userToSave.getEmail());
+        }
 
       } else {
         throw new RegistrationException(
