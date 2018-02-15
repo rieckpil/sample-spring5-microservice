@@ -7,8 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.rieckpil.exceptions.RegistrationException;
 import de.rieckpil.dtos.UserDTO;
+import de.rieckpil.exceptions.RegistrationException;
 import de.rieckpil.services.AuthService;
 import lombok.extern.slf4j.Slf4j;
 

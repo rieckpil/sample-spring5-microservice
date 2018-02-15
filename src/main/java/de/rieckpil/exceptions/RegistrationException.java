@@ -1,4 +1,4 @@
-package com.rieckpil.exceptions;
+package de.rieckpil.exceptions;
 
 public class RegistrationException extends Exception{
 

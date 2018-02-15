@@ -1,7 +1,7 @@
 package de.rieckpil.services;
 
-import com.rieckpil.exceptions.RegistrationException;
 import de.rieckpil.dtos.UserDTO;
+import de.rieckpil.exceptions.RegistrationException;
 
 public interface AuthService {
   
