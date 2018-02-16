@@ -1,9 +1,9 @@
 package de.rieckpil.validation;
 
+import java.util.Arrays;
 import java.util.TimeZone;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import org.assertj.core.util.Arrays;
 
 public class TimezoneValidator implements ConstraintValidator<ValidTimezone, String> {
 
