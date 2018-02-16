@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import de.rieckpil.validation.ValidTimezone;
 import lombok.Data;
 
 @Data
@@ -24,6 +25,7 @@ public class CountryDTO {
 
 	@NotBlank
 	@Size(min = 3, max = 255)
+	@ValidTimezone
 	private String timezone;
 
 	@NotBlank
