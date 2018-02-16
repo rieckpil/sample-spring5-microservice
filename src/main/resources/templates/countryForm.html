@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/htmlHeadFragment :: headerFragment" />
 <body>
 
@@ -94,7 +94,8 @@
 								</label>
 								<div class="col-sm-9">
 									<input type="number" class="form-control" id="inputLatitude"
-										name="latitude" placeholder="Latitude" th:field="*{latitude}"></input>
+										name="latitude" placeholder="Latitude" th:field="*{latitude}"
+										step="any"></input>
 								</div>
 							</div>
 							<div class="form-group">
@@ -103,7 +104,14 @@
 								<div class="col-sm-9">
 									<input type="number" class="form-control" id="inputLongitude"
 										name="longitude" placeholder="Longitude"
-										th:field="*{longitude}"></input>
+										th:field="*{longitude}" step="any"></input>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="longitude" class="col-sm-3 control-label">Founded:
+								</label>
+								<div class="col-sm-9">
+									<input type=datetime-local step=86400 />
 								</div>
 							</div>
 							<div class="form-group">
