@@ -10,6 +10,11 @@ public class HomeController {
   public String getStartPage() {
     return "index";
   }
+  
+  @GetMapping("/websocket")
+  public String getWebsocketPage() {
+    return "websocket";
+  }
 
   @GetMapping("/access-denied")
   public String getAccessDeniedPage() {
