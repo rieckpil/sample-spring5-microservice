@@ -1,7 +1,6 @@
 package de.rieckpil.websockets;
 
 import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,12 +12,12 @@ public class Stock implements Serializable {
 
   private String code;
   private double price;
-  private Date date;
+  private long timestamp;
   
   public Stock(String code, double price) {
     this.code = code;
     this.price = price;
-    this.date = new Date();
+    this.timestamp = System.currentTimeMillis();
   }
   
 }
