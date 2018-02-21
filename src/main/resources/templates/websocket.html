@@ -21,7 +21,8 @@
 						<form class="form-horizontal">
 
 							<div class="form-group">
-								<label for="code" class="col-sm-3 control-label">Stock Code: </label>
+								<label for="code" class="col-sm-3 control-label">Stock
+									Code: </label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="code" name="code"
 										placeholder="Stock Code"></input>
@@ -31,7 +32,8 @@
 								<label for="price" class="col-sm-3 control-label">Price
 								</label>
 								<div class="col-sm-9">
-									<input type="number" class="form-control" id="price" name="price" value="0.0"></input>
+									<input type="number" class="form-control" id="price"
+										name="price" value="0.0"></input>
 								</div>
 							</div>
 							<div class="form-group">
@@ -56,11 +58,75 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<p>coming soon...
+						<div class="row">
+							<div class="col-md-12">
+								<table  class="table table-striped">
+									<thead>
+										<tr>
+											<th>Code</th>
+											<th>Price</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody id="priceTable">
+									
+									</tbody>
+
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://d1fxtkz8shb9d2.cloudfront.net/sockjs-0.3.4.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.2/stomp.min.js"></script>
+	<script>
+	
+		var stomp = Stomp.over(new SockJS("/ws"));
+		function displayStockPrice(frame) {
+			var prices = JSON.parse(frame.body);
+			$('#priceTable').empty();
+			for(var i = 0; i < prices.length; i++){
+
+				var date = new Date(prices[i].timestamp);
+				var hours = date.getHours();
+				var minutes = "0" + date.getMinutes();
+				var seconds = "0" + date.getSeconds();
+				var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+				
+				$('#priceTable').append(
+					$('<tr>').append(
+						$('<td>').html(prices[i].code),
+						$('<td>').html(prices[i].price.toFixed(2) + " &euro;"),
+						$('<td>').html(formattedTime)
+					)
+				);
+			}
+		}
+		
+		var connectCallback = function () {
+			stomp.subscribe('/topic/price', displayStockPrice);
+		};
+		
+		var errorCallback = function (error) {
+			alert(error.headers.message);
+		};
+		
+		stomp.connect("guest", "guest", connectCallback, errorCallback);
+		
+		$(document).ready(function () {
+			$('.addStockButton').click(function (e) {
+				e.preventDefault();
+				var jsonstr = JSON.stringify({ 'code': $('.addStock .code').val(),
+				'price': Number($('.addStock .price').val()) });
+				stomp.send("/app/addStock", {}, jsonstr);
+				return false;
+			});
+		});
+	</script>
+
 </body>
 </html>
