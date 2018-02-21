@@ -32,10 +32,8 @@ public class StockHandler {
 
   private void updateAndBroadcastPrices() {
     for (Stock stock : stocks) {
-
       stock.setPrice(stock.getPrice() + (getUpdatedStockPrice() * stock.getPrice()));
       stock.setDate(new Date());
-
     }
 
     simpMessagingTemplate.convertAndSend("/topic/price", stocks);
@@ -63,7 +61,7 @@ public class StockHandler {
     taskScheduler.scheduleAtFixedRate(new Runnable() {
       @Override
       public void run() {
-        broadcastPeriodically();
+        updateAndBroadcastPrices();
       }
     }, 1000);
   }
