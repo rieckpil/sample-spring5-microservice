@@ -1,7 +1,6 @@
 package de.rieckpil.websockets;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.PostConstruct;
@@ -33,7 +32,7 @@ public class StockHandler {
   private void updateAndBroadcastPrices() {
     for (Stock stock : stocks) {
       stock.setPrice(stock.getPrice() + (getUpdatedStockPrice() * stock.getPrice()));
-      stock.setDate(new Date());
+      stock.setTimestamp(System.currentTimeMillis());
     }
 
     simpMessagingTemplate.convertAndSend("/topic/price", stocks);
