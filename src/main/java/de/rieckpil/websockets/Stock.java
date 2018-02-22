@@ -12,12 +12,11 @@ public class Stock implements Serializable {
 
   private String code;
   private double price;
-  private long timestamp;
+  private long timestamp = System.currentTimeMillis();
   
   public Stock(String code, double price) {
     this.code = code;
     this.price = price;
-    this.timestamp = System.currentTimeMillis();
   }
   
 }
