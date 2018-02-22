@@ -38,7 +38,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-8 col-sm-4">
-									<button type="submit" class="btn btn-default pull-right">Upload</button>
+									<button type="submit" id="addStockButton" class="btn btn-default pull-right">Add stock</button>
 								</div>
 							</div>
 						</form>
@@ -118,10 +118,10 @@
 		stomp.connect("guest", "guest", connectCallback, errorCallback);
 		
 		$(document).ready(function () {
-			$('.addStockButton').click(function (e) {
+			$('#addStockButton').click(function (e) {
 				e.preventDefault();
-				var jsonstr = JSON.stringify({ 'code': $('.addStock .code').val(),
-				'price': Number($('.addStock .price').val()) });
+				var jsonstr = JSON.stringify({ 'code': $('#code').val(),
+				'price': Number($('#price').val()) });
 				stomp.send("/app/addStock", {}, jsonstr);
 				return false;
 			});
