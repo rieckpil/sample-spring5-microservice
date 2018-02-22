@@ -8,8 +8,10 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 public class StockHandler {
 
   private final TaskScheduler taskScheduler;
@@ -51,8 +53,14 @@ public class StockHandler {
 
   @MessageMapping("/addStock")
   public void sayHello(Stock stock) {
-    stocks.add(stock);
-    updateAndBroadcastPrices();
+    
+    if(stock.getCode() == null || stock.getCode().isEmpty() || stock.getPrice() == 0.0) {
+      log.warn(String.format("Unable to add stock: %s", stock.toString()));
+    }else {
+      stocks.add(stock);
+      updateAndBroadcastPrices();
+    }
+    
   }
 
   @PostConstruct
