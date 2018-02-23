@@ -1,6 +1,7 @@
 create sequence hibernate_sequence start with 1 increment by 1
 create table city (id bigint not null, created_at timestamp, last_updated_at timestamp, latitude double not null, longitude double not null, name varchar(255), country_id bigint, primary key (id))
 create table country (id bigint not null, country_code varchar(255), created_at timestamp, default_language varchar(255) not null, last_updated_at timestamp, latitude double not null, longitude double not null, name varchar(255) not null, timezone varchar(255) not null, valid_to timestamp not null, primary key (id))
+create table customer (id bigint not null, crm_id bigint, first_name varchar(255), last_name varchar(255), primary key (id))
 create table hall (id bigint not null, created_at timestamp, description varchar(255), last_updated_at timestamp, name varchar(255), plant_id bigint, primary key (id))
 create table machine (id bigint not null, created_at timestamp, last_updated_at timestamp, name varchar(255), hall_id bigint, primary key (id))
 create table plant (id bigint not null, abbreviation varchar(255), created_at timestamp, last_updated_at timestamp, name varchar(255), city_id bigint, primary key (id))
