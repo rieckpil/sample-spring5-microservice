@@ -8,6 +8,7 @@ Sample Spring 5 Microservice for evaluating new functionalities in following pro
 * Spring Web
 * Spring Data JPA
 * Spring AOP
+* Spring Batch
 * Thymeleaf
 * Gradle
 * Protobuf
