@@ -1,0 +1,420 @@
+2018-02-25 08:51:25.806  INFO 974 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Starting SampleMicroserviceSpring5Application on Philips-MBP.fritz.box with PID 974 (/Users/Philip/git/sample-spring5-microservice/bin started by Philip in /Users/Philip/git/sample-spring5-microservice)
+2018-02-25 08:51:25.808  INFO 974 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : No active profile set, falling back to default profiles: default
+2018-02-25 08:51:25.888  INFO 974 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@13e71e97: startup date [Sun Feb 25 08:51:25 CET 2018]; root of context hierarchy
+2018-02-25 08:51:27.503  WARN 974 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:51:27.515  WARN 974 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:51:27.685  INFO 974 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d00bbc3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-25 08:51:28.129  INFO 974 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-02-25 08:51:28.141  INFO 974 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-25 08:51:28.142  INFO 974 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-02-25 08:51:28.152  INFO 974 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/Philip/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-02-25 08:51:28.228  INFO 974 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-25 08:51:28.228  INFO 974 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2340 ms
+2018-02-25 08:51:28.421  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-25 08:51:28.422  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-25 08:51:28.422  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-25 08:51:28.422  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-25 08:51:28.424  INFO 974 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-02-25 08:51:28.424  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-02-25 08:51:28.425  INFO 974 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-02-25 08:51:28.473  INFO 974 --- [restartedMain] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2018-02-25 08:51:28.573  INFO 974 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [scripts/h2-schema.sql]
+2018-02-25 08:51:28.740  INFO 974 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [scripts/h2-schema.sql] in 167 ms.
+2018-02-25 08:51:28.890  INFO 974 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:51:28.905  INFO 974 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-25 08:51:29.000  INFO 974 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-25 08:51:29.001  INFO 974 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-25 08:51:29.052  INFO 974 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-25 08:51:29.195  INFO 974 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-02-25 08:51:29.914  INFO 974 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:51:30.368  INFO 974 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-02-25 08:51:31.282  INFO 974 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'messageBrokerTaskScheduler'
+2018-02-25 08:51:31.305  INFO 974 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientInboundChannelExecutor'
+2018-02-25 08:51:31.328  INFO 974 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientOutboundChannelExecutor'
+2018-02-25 08:51:32.147  INFO 974 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bd943f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@8c79237, org.springframework.security.web.header.HeaderWriterFilter@625f81be, org.springframework.security.web.authentication.logout.LogoutFilter@5d7051a2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@61a2fb9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6402c7f1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f63e48d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3c60fd5b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6733c5ac, org.springframework.security.web.session.SessionManagementFilter@5476f275, org.springframework.security.web.access.ExceptionTranslationFilter@23bcf32, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3934e8ac]
+2018-02-25 08:51:32.250  INFO 974 --- [restartedMain] o.s.w.s.s.s.WebSocketHandlerMapping      : Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2018-02-25 08:51:32.275  INFO 974 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'brokerChannelExecutor'
+2018-02-25 08:51:32.359  INFO 974 --- [restartedMain] .WebSocketAnnotationMethodMessageHandler : Mapped "{[/addStock],messageType=[MESSAGE]}" onto public void de.rieckpil.websockets.StockHandler.sayHello(de.rieckpil.websockets.Stock)
+2018-02-25 08:51:32.774  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@13e71e97: startup date [Sun Feb 25 08:51:25 CET 2018]; root of context hierarchy
+2018-02-25 08:51:32.819  WARN 974 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-02-25 08:51:32.853  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getRegisterPage()
+2018-02-25 08:51:32.854  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getSignUpPage(org.springframework.ui.Model)
+2018-02-25 08:51:32.854  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.AuthController.registerUser(de.rieckpil.dtos.UserDTO,org.springframework.validation.BindingResult,org.springframework.ui.Model)
+2018-02-25 08:51:32.854  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginPage],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getLoginPage()
+2018-02-25 08:51:32.857  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[GET]}" onto public java.util.List<de.rieckpil.dtos.CountryDTO> de.rieckpil.controllers.CountryController.getCountries()
+2018-02-25 08:51:32.858  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[POST]}" onto public void de.rieckpil.controllers.CountryController.createNewCountry(de.rieckpil.dtos.CountryDTO)
+2018-02-25 08:51:32.858  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[GET]}" onto public de.rieckpil.dtos.CountryDTO de.rieckpil.controllers.CountryController.getCountryByName(java.lang.String)
+2018-02-25 08:51:32.858  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/amount],methods=[GET]}" onto public int de.rieckpil.controllers.CountryController.getAmountOfCountries()
+2018-02-25 08:51:32.859  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[DELETE]}" onto public void de.rieckpil.controllers.CountryController.deleteCountryByName(java.lang.String)
+2018-02-25 08:51:32.860  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.FileController.getUploadForm()
+2018-02-25 08:51:32.860  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.FileController.storeUploadedFile(java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.ui.Model) throws java.io.IOException,java.security.NoSuchAlgorithmException
+2018-02-25 08:51:32.861  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getStartPage()
+2018-02-25 08:51:32.861  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/websocket],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getWebsocketPage()
+2018-02-25 08:51:32.861  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-denied],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getAccessDeniedPage()
+2018-02-25 08:51:32.861  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountry(de.rieckpil.dtos.CountryDTO,org.springframework.validation.BindingResult)
+2018-02-25 08:51:32.862  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/countryList],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.getCountryListPage(org.springframework.ui.Model)
+2018-02-25 08:51:32.862  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country/new],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountryForm(org.springframework.ui.Model)
+2018-02-25 08:51:32.862  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/proto/messages],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> de.rieckpil.controllers.ProtoController.createProtoMessage(de.rieckpil.dtos.MessageDTO)
+2018-02-25 08:51:32.863  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/system/info],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.SystemController.getSystemInfo()
+2018-02-25 08:51:32.867  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-25 08:51:32.867  INFO 974 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-25 08:51:32.924  INFO 974 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:51:32.924  INFO 974 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:51:32.948  INFO 974 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in customizedExceptionHandler
+2018-02-25 08:51:32.983  INFO 974 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:51:33.110  INFO 974 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2018-02-25 08:51:33.221  WARN 974 --- [restartedMain] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2018-02-25 08:51:33.227  INFO 974 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: H2
+2018-02-25 08:51:33.247  INFO 974 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2018-02-25 08:51:33.268  INFO 974 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [org/springframework/batch/core/schema-h2.sql]
+2018-02-25 08:51:33.282  INFO 974 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [org/springframework/batch/core/schema-h2.sql] in 14 ms.
+2018-02-25 08:51:33.507  INFO 974 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-25 08:51:33.612  INFO 974 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-25 08:51:33.629  INFO 974 --- [restartedMain] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-02-25 08:51:33.630  INFO 974 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2018-02-25 08:51:33.631  INFO 974 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:51:33.634  INFO 974 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2018-02-25 08:51:33.721  INFO 974 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-02-25 08:51:33.725  INFO 974 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Started SampleMicroserviceSpring5Application in 8.69 seconds (JVM running for 10.228)
+2018-02-25 08:51:33.734  INFO 974 --- [restartedMain] o.s.b.a.b.JobLauncherCommandLineRunner   : Running default command line with: []
+2018-02-25 08:51:33.809  INFO 974 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] launched with the following parameters: [{run.id=1}]
+2018-02-25 08:51:33.844  INFO 974 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2018-02-25 08:51:33.883  INFO 974 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=ill, lastName=Doe, crmId=110004) to new customer object: Customer(id=null, lastName=DOE, firstName=ILL, crmId=220008)
+2018-02-25 08:51:33.883  INFO 974 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Joe, lastName=Doe, crmId=443466) to new customer object: Customer(id=null, lastName=DOE, firstName=JOE, crmId=886932)
+2018-02-25 08:51:33.883  INFO 974 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Justin, lastName=Doe, crmId=23256) to new customer object: Customer(id=null, lastName=DOE, firstName=JUSTIN, crmId=46512)
+2018-02-25 08:51:33.883  INFO 974 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Jane, lastName=Doe, crmId=111234) to new customer object: Customer(id=null, lastName=DOE, firstName=JANE, crmId=222468)
+2018-02-25 08:51:33.883  INFO 974 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=John, lastName=Doe, crmId=311992) to new customer object: Customer(id=null, lastName=DOE, firstName=JOHN, crmId=623984)
+2018-02-25 08:51:34.193  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : !!! JOB FINISHED! Time to verify the results
+2018-02-25 08:51:34.214  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=1, lastName=DOE, firstName=ILL, crmId=220008)>
+2018-02-25 08:51:34.214  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=2, lastName=DOE, firstName=JOE, crmId=886932)>
+2018-02-25 08:51:34.214  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=3, lastName=DOE, firstName=JUSTIN, crmId=46512)>
+2018-02-25 08:51:34.214  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=4, lastName=DOE, firstName=JANE, crmId=222468)>
+2018-02-25 08:51:34.214  INFO 974 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=5, lastName=DOE, firstName=JOHN, crmId=623984)>
+2018-02-25 08:51:34.217  INFO 974 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] completed with the following parameters: [{run.id=1}] and the following status: [COMPLETED]
+2018-02-25 08:51:34.220  INFO 974 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : bootstraping H2 database ...
+2018-02-25 08:51:34.220  INFO 974 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial countries ...
+2018-02-25 08:51:34.249  INFO 974 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial users ...
+2018-02-25 08:52:32.278  INFO 974 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 1, completed tasks = 61]
+2018-02-25 08:54:39.497  INFO 974 --- [Thread-7] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@13e71e97: startup date [Sun Feb 25 08:51:25 CET 2018]; root of context hierarchy
+2018-02-25 08:54:39.499  INFO 974 --- [Thread-7] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-02-25 08:54:39.500  INFO 974 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2018-02-25 08:54:39.500  INFO 974 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:54:39.500  INFO 974 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2018-02-25 08:54:39.501  INFO 974 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-25 08:54:39.503  INFO 974 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2018-02-25 08:54:39.504  INFO 974 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2018-02-25 08:54:39.504  INFO 974 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2018-02-25 08:54:39.504  INFO 974 --- [Thread-7] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2018-02-25 08:54:39.506  INFO 974 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:54:39.507  INFO 974 --- [Thread-7] o.s.j.d.e.EmbeddedDatabaseFactory        : Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2018-02-25 08:54:39.877 ERROR 974 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [STDOUT]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:166)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:263)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:236)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:199)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:351)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234)
+	at de.rieckpil.SampleMicroserviceSpring5Application.main(SampleMicroserviceSpring5Application.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2018-02-25 08:54:44.129 ERROR 1001 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [STDOUT]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:166)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:263)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:236)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:199)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:351)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234)
+	at de.rieckpil.SampleMicroserviceSpring5Application.main(SampleMicroserviceSpring5Application.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2018-02-25 08:55:20.067 ERROR 1005 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [STDOUT]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:166)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:263)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:236)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:199)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:351)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234)
+	at de.rieckpil.SampleMicroserviceSpring5Application.main(SampleMicroserviceSpring5Application.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2018-02-25 08:57:02.365  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Starting SampleMicroserviceSpring5Application on Philips-MBP.fritz.box with PID 1019 (/Users/Philip/git/sample-spring5-microservice/bin started by Philip in /Users/Philip/git/sample-spring5-microservice)
+2018-02-25 08:57:02.367  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : No active profile set, falling back to default profiles: default
+2018-02-25 08:57:02.429  INFO 1019 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27838688: startup date [Sun Feb 25 08:57:02 CET 2018]; root of context hierarchy
+2018-02-25 08:57:03.781  WARN 1019 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:57:03.794  WARN 1019 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:57:04.001  INFO 1019 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cebecb3f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-25 08:57:04.387  INFO 1019 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-02-25 08:57:04.397  INFO 1019 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-25 08:57:04.398  INFO 1019 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-02-25 08:57:04.406  INFO 1019 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/Philip/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-02-25 08:57:04.508  INFO 1019 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-25 08:57:04.508  INFO 1019 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2079 ms
+2018-02-25 08:57:04.813  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-25 08:57:04.813  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-25 08:57:04.814  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-25 08:57:04.814  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-25 08:57:04.815  INFO 1019 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-02-25 08:57:04.815  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-02-25 08:57:04.816  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-02-25 08:57:04.865  INFO 1019 --- [restartedMain] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2018-02-25 08:57:04.997  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [scripts/h2-schema.sql]
+2018-02-25 08:57:05.221  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [scripts/h2-schema.sql] in 224 ms.
+2018-02-25 08:57:05.380  INFO 1019 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:57:05.393  INFO 1019 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-25 08:57:05.450  INFO 1019 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-25 08:57:05.452  INFO 1019 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-25 08:57:05.490  INFO 1019 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-25 08:57:05.600  INFO 1019 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-02-25 08:57:06.181  INFO 1019 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:57:06.573  INFO 1019 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-02-25 08:57:07.322  INFO 1019 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'messageBrokerTaskScheduler'
+2018-02-25 08:57:07.341  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientInboundChannelExecutor'
+2018-02-25 08:57:07.357  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientOutboundChannelExecutor'
+2018-02-25 08:57:07.698  INFO 1019 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f8f9bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@ba5ed45, org.springframework.security.web.header.HeaderWriterFilter@7fb104b, org.springframework.security.web.authentication.logout.LogoutFilter@1bc9bb09, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1881d23c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37cfdb76, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6da5343c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@51bdd575, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b8619f5, org.springframework.security.web.session.SessionManagementFilter@6971b14d, org.springframework.security.web.access.ExceptionTranslationFilter@375275cd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c43c51c]
+2018-02-25 08:57:07.752  INFO 1019 --- [restartedMain] o.s.w.s.s.s.WebSocketHandlerMapping      : Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2018-02-25 08:57:07.777  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'brokerChannelExecutor'
+2018-02-25 08:57:07.841  INFO 1019 --- [restartedMain] .WebSocketAnnotationMethodMessageHandler : Mapped "{[/addStock],messageType=[MESSAGE]}" onto public void de.rieckpil.websockets.StockHandler.sayHello(de.rieckpil.websockets.Stock)
+2018-02-25 08:57:08.221  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27838688: startup date [Sun Feb 25 08:57:02 CET 2018]; root of context hierarchy
+2018-02-25 08:57:08.271  WARN 1019 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-02-25 08:57:08.316  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getRegisterPage()
+2018-02-25 08:57:08.318  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getSignUpPage(org.springframework.ui.Model)
+2018-02-25 08:57:08.319  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.AuthController.registerUser(de.rieckpil.dtos.UserDTO,org.springframework.validation.BindingResult,org.springframework.ui.Model)
+2018-02-25 08:57:08.319  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginPage],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getLoginPage()
+2018-02-25 08:57:08.322  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[GET]}" onto public java.util.List<de.rieckpil.dtos.CountryDTO> de.rieckpil.controllers.CountryController.getCountries()
+2018-02-25 08:57:08.323  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[POST]}" onto public void de.rieckpil.controllers.CountryController.createNewCountry(de.rieckpil.dtos.CountryDTO)
+2018-02-25 08:57:08.324  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[GET]}" onto public de.rieckpil.dtos.CountryDTO de.rieckpil.controllers.CountryController.getCountryByName(java.lang.String)
+2018-02-25 08:57:08.325  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/amount],methods=[GET]}" onto public int de.rieckpil.controllers.CountryController.getAmountOfCountries()
+2018-02-25 08:57:08.325  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[DELETE]}" onto public void de.rieckpil.controllers.CountryController.deleteCountryByName(java.lang.String)
+2018-02-25 08:57:08.326  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.FileController.getUploadForm()
+2018-02-25 08:57:08.326  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.FileController.storeUploadedFile(java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.ui.Model) throws java.io.IOException,java.security.NoSuchAlgorithmException
+2018-02-25 08:57:08.328  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getStartPage()
+2018-02-25 08:57:08.329  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/websocket],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getWebsocketPage()
+2018-02-25 08:57:08.330  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-denied],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getAccessDeniedPage()
+2018-02-25 08:57:08.331  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountry(de.rieckpil.dtos.CountryDTO,org.springframework.validation.BindingResult)
+2018-02-25 08:57:08.332  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/countryList],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.getCountryListPage(org.springframework.ui.Model)
+2018-02-25 08:57:08.333  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country/new],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountryForm(org.springframework.ui.Model)
+2018-02-25 08:57:08.334  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/proto/messages],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> de.rieckpil.controllers.ProtoController.createProtoMessage(de.rieckpil.dtos.MessageDTO)
+2018-02-25 08:57:08.336  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/system/info],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.SystemController.getSystemInfo()
+2018-02-25 08:57:08.345  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-25 08:57:08.347  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-25 08:57:08.451  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:08.452  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:08.499  INFO 1019 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in customizedExceptionHandler
+2018-02-25 08:57:08.558  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:08.761  INFO 1019 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2018-02-25 08:57:08.855  WARN 1019 --- [restartedMain] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2018-02-25 08:57:08.859  INFO 1019 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: H2
+2018-02-25 08:57:08.873  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2018-02-25 08:57:08.896  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [org/springframework/batch/core/schema-h2.sql]
+2018-02-25 08:57:08.913  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [org/springframework/batch/core/schema-h2.sql] in 16 ms.
+2018-02-25 08:57:09.079  INFO 1019 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-25 08:57:09.167  INFO 1019 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-25 08:57:09.178  INFO 1019 --- [restartedMain] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-02-25 08:57:09.179  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2018-02-25 08:57:09.179  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:57:09.180  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2018-02-25 08:57:09.229  INFO 1019 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-02-25 08:57:09.233  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Started SampleMicroserviceSpring5Application in 7.475 seconds (JVM running for 8.231)
+2018-02-25 08:57:09.236  INFO 1019 --- [restartedMain] o.s.b.a.b.JobLauncherCommandLineRunner   : Running default command line with: []
+2018-02-25 08:57:09.305  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] launched with the following parameters: [{run.id=1}]
+2018-02-25 08:57:09.337  INFO 1019 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2018-02-25 08:57:09.372  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=ill, lastName=Doe, crmId=110004) to new customer object: Customer(id=null, lastName=DOE, firstName=ILL, crmId=220008)
+2018-02-25 08:57:09.372  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Joe, lastName=Doe, crmId=443466) to new customer object: Customer(id=null, lastName=DOE, firstName=JOE, crmId=886932)
+2018-02-25 08:57:09.372  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Justin, lastName=Doe, crmId=23256) to new customer object: Customer(id=null, lastName=DOE, firstName=JUSTIN, crmId=46512)
+2018-02-25 08:57:09.372  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Jane, lastName=Doe, crmId=111234) to new customer object: Customer(id=null, lastName=DOE, firstName=JANE, crmId=222468)
+2018-02-25 08:57:09.373  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=John, lastName=Doe, crmId=311992) to new customer object: Customer(id=null, lastName=DOE, firstName=JOHN, crmId=623984)
+2018-02-25 08:57:09.651  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : !!! JOB FINISHED! Time to verify the results
+2018-02-25 08:57:09.669  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=1, lastName=DOE, firstName=ILL, crmId=220008)>
+2018-02-25 08:57:09.669  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=2, lastName=DOE, firstName=JOE, crmId=886932)>
+2018-02-25 08:57:09.669  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=3, lastName=DOE, firstName=JUSTIN, crmId=46512)>
+2018-02-25 08:57:09.669  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=4, lastName=DOE, firstName=JANE, crmId=222468)>
+2018-02-25 08:57:09.669  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=5, lastName=DOE, firstName=JOHN, crmId=623984)>
+2018-02-25 08:57:09.671  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] completed with the following parameters: [{run.id=1}] and the following status: [COMPLETED]
+2018-02-25 08:57:09.675  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : bootstraping H2 database ...
+2018-02-25 08:57:09.675  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial countries ...
+2018-02-25 08:57:09.699  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial users ...
+2018-02-25 08:57:32.799  INFO 1019 --- [Thread-7] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27838688: startup date [Sun Feb 25 08:57:02 CET 2018]; root of context hierarchy
+2018-02-25 08:57:32.801  INFO 1019 --- [Thread-7] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-02-25 08:57:32.802  INFO 1019 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2018-02-25 08:57:32.802  INFO 1019 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:57:32.803  INFO 1019 --- [Thread-7] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2018-02-25 08:57:32.804  INFO 1019 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-25 08:57:32.805  INFO 1019 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2018-02-25 08:57:32.805  INFO 1019 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2018-02-25 08:57:32.806  INFO 1019 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2018-02-25 08:57:32.806  INFO 1019 --- [Thread-7] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2018-02-25 08:57:32.808  INFO 1019 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:57:32.809  INFO 1019 --- [Thread-7] o.s.j.d.e.EmbeddedDatabaseFactory        : Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2018-02-25 08:57:33.188  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Starting SampleMicroserviceSpring5Application on Philips-MBP.fritz.box with PID 1019 (/Users/Philip/git/sample-spring5-microservice/bin started by Philip in /Users/Philip/git/sample-spring5-microservice)
+2018-02-25 08:57:33.188  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : No active profile set, falling back to default profiles: default
+2018-02-25 08:57:33.191  INFO 1019 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@385ecef0: startup date [Sun Feb 25 08:57:33 CET 2018]; root of context hierarchy
+2018-02-25 08:57:33.572  WARN 1019 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:57:33.572  WARN 1019 --- [restartedMain] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2018-02-25 08:57:33.599  INFO 1019 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cebecb3f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-25 08:57:33.695  INFO 1019 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-02-25 08:57:33.697  INFO 1019 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-25 08:57:33.697  INFO 1019 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-02-25 08:57:33.710  INFO 1019 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-25 08:57:33.711  INFO 1019 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 520 ms
+2018-02-25 08:57:33.798  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-25 08:57:33.799  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-25 08:57:33.799  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-25 08:57:33.799  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-25 08:57:33.799  INFO 1019 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-02-25 08:57:33.799  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-02-25 08:57:33.800  INFO 1019 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-02-25 08:57:33.821  INFO 1019 --- [restartedMain] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2018-02-25 08:57:33.822  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [scripts/h2-schema.sql]
+2018-02-25 08:57:33.836  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [scripts/h2-schema.sql] in 14 ms.
+2018-02-25 08:57:33.890  INFO 1019 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:57:33.890  INFO 1019 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-25 08:57:33.906  INFO 1019 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-02-25 08:57:34.055  INFO 1019 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:57:34.186  INFO 1019 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-02-25 08:57:34.567  INFO 1019 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'messageBrokerTaskScheduler'
+2018-02-25 08:57:34.577  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientInboundChannelExecutor'
+2018-02-25 08:57:34.588  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'clientOutboundChannelExecutor'
+2018-02-25 08:57:34.691  INFO 1019 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@426e9a09, org.springframework.security.web.context.SecurityContextPersistenceFilter@24385397, org.springframework.security.web.header.HeaderWriterFilter@eab5255, org.springframework.security.web.authentication.logout.LogoutFilter@63c1a065, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@492f2c3b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a0d3d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@504d10e2, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@47055502, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4723a4d, org.springframework.security.web.session.SessionManagementFilter@2dd3cd9b, org.springframework.security.web.access.ExceptionTranslationFilter@5c1f94f5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b8dbaeb]
+2018-02-25 08:57:34.699  INFO 1019 --- [restartedMain] o.s.w.s.s.s.WebSocketHandlerMapping      : Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2018-02-25 08:57:34.712  INFO 1019 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'brokerChannelExecutor'
+2018-02-25 08:57:34.737  INFO 1019 --- [restartedMain] .WebSocketAnnotationMethodMessageHandler : Mapped "{[/addStock],messageType=[MESSAGE]}" onto public void de.rieckpil.websockets.StockHandler.sayHello(de.rieckpil.websockets.Stock)
+2018-02-25 08:57:34.876  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@385ecef0: startup date [Sun Feb 25 08:57:33 CET 2018]; root of context hierarchy
+2018-02-25 08:57:34.899  WARN 1019 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-02-25 08:57:34.907  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getRegisterPage()
+2018-02-25 08:57:34.907  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getSignUpPage(org.springframework.ui.Model)
+2018-02-25 08:57:34.908  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signUp],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.AuthController.registerUser(de.rieckpil.dtos.UserDTO,org.springframework.validation.BindingResult,org.springframework.ui.Model)
+2018-02-25 08:57:34.908  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginPage],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.AuthController.getLoginPage()
+2018-02-25 08:57:34.913  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[GET]}" onto public java.util.List<de.rieckpil.dtos.CountryDTO> de.rieckpil.controllers.CountryController.getCountries()
+2018-02-25 08:57:34.914  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/ || /api/countries],methods=[POST]}" onto public void de.rieckpil.controllers.CountryController.createNewCountry(de.rieckpil.dtos.CountryDTO)
+2018-02-25 08:57:34.915  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[GET]}" onto public de.rieckpil.dtos.CountryDTO de.rieckpil.controllers.CountryController.getCountryByName(java.lang.String)
+2018-02-25 08:57:34.915  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/amount],methods=[GET]}" onto public int de.rieckpil.controllers.CountryController.getAmountOfCountries()
+2018-02-25 08:57:34.916  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/countries/{countryName}],methods=[DELETE]}" onto public void de.rieckpil.controllers.CountryController.deleteCountryByName(java.lang.String)
+2018-02-25 08:57:34.917  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.FileController.getUploadForm()
+2018-02-25 08:57:34.917  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload-file],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.FileController.storeUploadedFile(java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.ui.Model) throws java.io.IOException,java.security.NoSuchAlgorithmException
+2018-02-25 08:57:34.918  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getStartPage()
+2018-02-25 08:57:34.918  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/websocket],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getWebsocketPage()
+2018-02-25 08:57:34.918  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-denied],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.HomeController.getAccessDeniedPage()
+2018-02-25 08:57:34.919  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country],methods=[POST]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountry(de.rieckpil.dtos.CountryDTO,org.springframework.validation.BindingResult)
+2018-02-25 08:57:34.919  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/countryList],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.getCountryListPage(org.springframework.ui.Model)
+2018-02-25 08:57:34.919  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/country/new],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.PageController.createNewCountryForm(org.springframework.ui.Model)
+2018-02-25 08:57:34.920  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/proto/messages],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> de.rieckpil.controllers.ProtoController.createProtoMessage(de.rieckpil.dtos.MessageDTO)
+2018-02-25 08:57:34.921  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/system/info],methods=[GET]}" onto public java.lang.String de.rieckpil.controllers.SystemController.getSystemInfo()
+2018-02-25 08:57:34.924  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-25 08:57:34.925  INFO 1019 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-25 08:57:34.975  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:34.976  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:34.994  INFO 1019 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in customizedExceptionHandler
+2018-02-25 08:57:35.011  INFO 1019 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-25 08:57:35.073  INFO 1019 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2018-02-25 08:57:35.112  WARN 1019 --- [restartedMain] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2018-02-25 08:57:35.113  INFO 1019 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: H2
+2018-02-25 08:57:35.113  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2018-02-25 08:57:35.124  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [org/springframework/batch/core/schema-h2.sql]
+2018-02-25 08:57:35.136  INFO 1019 --- [restartedMain] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [org/springframework/batch/core/schema-h2.sql] in 12 ms.
+2018-02-25 08:57:35.208  INFO 1019 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-25 08:57:35.309  INFO 1019 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-25 08:57:35.316  INFO 1019 --- [restartedMain] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-02-25 08:57:35.316  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2018-02-25 08:57:35.316  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:57:35.317  INFO 1019 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2018-02-25 08:57:35.325  INFO 1019 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-02-25 08:57:35.326  INFO 1019 --- [restartedMain] d.r.SampleMicroserviceSpring5Application : Started SampleMicroserviceSpring5Application in 2.175 seconds (JVM running for 34.324)
+2018-02-25 08:57:35.330  INFO 1019 --- [restartedMain] o.s.b.a.b.JobLauncherCommandLineRunner   : Running default command line with: []
+2018-02-25 08:57:35.377  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] launched with the following parameters: [{run.id=1}]
+2018-02-25 08:57:35.396  INFO 1019 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2018-02-25 08:57:35.406  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=ill, lastName=Doe, crmId=110004) to new customer object: Customer(id=null, lastName=DOE, firstName=ILL, crmId=220008)
+2018-02-25 08:57:35.406  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Joe, lastName=Doe, crmId=443466) to new customer object: Customer(id=null, lastName=DOE, firstName=JOE, crmId=886932)
+2018-02-25 08:57:35.406  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Justin, lastName=Doe, crmId=23256) to new customer object: Customer(id=null, lastName=DOE, firstName=JUSTIN, crmId=46512)
+2018-02-25 08:57:35.406  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=Jane, lastName=Doe, crmId=111234) to new customer object: Customer(id=null, lastName=DOE, firstName=JANE, crmId=222468)
+2018-02-25 08:57:35.406  INFO 1019 --- [restartedMain] de.rieckpil.batch.CustomerItemProcessor  : Convertig: CustomerDTO(firstName=John, lastName=Doe, crmId=311992) to new customer object: Customer(id=null, lastName=DOE, firstName=JOHN, crmId=623984)
+2018-02-25 08:57:35.426  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : !!! JOB FINISHED! Time to verify the results
+2018-02-25 08:57:35.432  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=1, lastName=DOE, firstName=ILL, crmId=220008)>
+2018-02-25 08:57:35.433  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=2, lastName=DOE, firstName=JOE, crmId=886932)>
+2018-02-25 08:57:35.433  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=3, lastName=DOE, firstName=JUSTIN, crmId=46512)>
+2018-02-25 08:57:35.433  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=4, lastName=DOE, firstName=JANE, crmId=222468)>
+2018-02-25 08:57:35.433  INFO 1019 --- [restartedMain] d.r.b.JobCompletionNotificationListener  : Found customer <Customer(id=5, lastName=DOE, firstName=JOHN, crmId=623984)>
+2018-02-25 08:57:35.436  INFO 1019 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importCustomerJob]] completed with the following parameters: [{run.id=1}] and the following status: [COMPLETED]
+2018-02-25 08:57:35.440  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : bootstraping H2 database ...
+2018-02-25 08:57:35.440  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial countries ...
+2018-02-25 08:57:35.462  INFO 1019 --- [restartedMain] de.rieckpil.bootstrap.BootstrapH2        : loading initial users ...
+2018-02-25 08:57:35.740  INFO 1019 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-02-25 08:58:34.725  INFO 1019 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 1, completed tasks = 61]
+2018-02-25 08:59:37.945  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-25 08:59:37.946  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@385ecef0: startup date [Sun Feb 25 08:57:33 CET 2018]; root of context hierarchy
+2018-02-25 08:59:37.947  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-02-25 08:59:37.947  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2018-02-25 08:59:37.947  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-02-25 08:59:37.947  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2018-02-25 08:59:37.948  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-25 08:59:37.948  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2018-02-25 08:59:37.949  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2018-02-25 08:59:37.949  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2018-02-25 08:59:37.949  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2018-02-25 08:59:37.953  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-02-25 08:59:37.956  INFO 1019 --- [RMI TCP Connection(11)-127.0.0.1] o.s.j.d.e.EmbeddedDatabaseFactory        : Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
