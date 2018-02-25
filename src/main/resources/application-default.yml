@@ -19,4 +19,5 @@ management:
 security:
   basic:
     enabled: true
-
+logging:
+  file: sample-spring5-microservice.log
