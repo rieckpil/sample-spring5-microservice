@@ -1,9 +1,11 @@
 package de.rieckpil.bootstrap;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 import javax.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -11,48 +13,58 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import de.rieckpil.domain.City;
 import de.rieckpil.domain.Country;
+import de.rieckpil.domain.Gender;
 import de.rieckpil.domain.Hall;
 import de.rieckpil.domain.Machine;
+import de.rieckpil.domain.Person;
 import de.rieckpil.domain.Plant;
 import de.rieckpil.repositories.CountryRepository;
+import de.rieckpil.repositories.PersonRepository;
 import de.rieckpil.repositories.PrivilegeRepository;
 import de.rieckpil.repositories.RoleRepository;
 import de.rieckpil.repositories.UserRepository;
 import de.rieckpil.security.Privilege;
 import de.rieckpil.security.Role;
 import de.rieckpil.security.User;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Profile({"default"})
 @Slf4j
+@RequiredArgsConstructor
 public class BootstrapH2 implements CommandLineRunner {
 
-  private CountryRepository countryRepository;
-
-  private UserRepository userRepository;
-
-  private RoleRepository roleRepository;
-
-  private PrivilegeRepository privilegeRepository;
-  
-  private PasswordEncoder passwordEncoder;
-
-  public BootstrapH2(CountryRepository countryRepository, UserRepository userRepository,
-      RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
-
-    this.countryRepository = countryRepository;
-    this.userRepository = userRepository;
-    this.roleRepository = roleRepository;
-    this.privilegeRepository = privilegeRepository;
-    this.passwordEncoder = passwordEncoder;
-  }
+  private final CountryRepository countryRepository;
+  private final UserRepository userRepository;
+  private final RoleRepository roleRepository;
+  private final PrivilegeRepository privilegeRepository;
+  private final PasswordEncoder passwordEncoder;
+  private final PersonRepository personRepository;
 
   @Override
   public void run(String... args) throws Exception {
     log.info("bootstraping H2 database ...");
     loadInitialCountries();
     loadInitialUsers();
+    loadInitialPersons();
+    log.info("... bootstraping H2 database finished");
+
+  }
+
+  @Transactional
+  private void loadInitialPersons() {
+    log.info("loading initial persons ...");
+
+    for (int i = 0; i < 30; i++) {
+      Person person = new Person();
+      person.setFirstName("Firstname" + i);
+      person.setLastName("Lastname" + i);
+      person.setDob(LocalDate.now().plusDays(i));
+      person.setPassportId(generateRandomString());
+      person.setGender(Math.random() < 0.5 ? Gender.MALE : Gender.FEMALE);
+      personRepository.save(person);
+    }
   }
 
   @Transactional
@@ -158,7 +170,7 @@ public class BootstrapH2 implements CommandLineRunner {
 
   @Transactional
   public void loadInitialUsers() {
-    
+
     log.info("loading initial users ...");
 
     Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
@@ -202,6 +214,18 @@ public class BootstrapH2 implements CommandLineRunner {
       roleRepository.save(role);
     }
     return role;
+  }
+
+  protected String generateRandomString() {
+    String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    StringBuilder salt = new StringBuilder();
+    Random rnd = new Random();
+    while (salt.length() < 18) { // length of the random string.
+      int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+      salt.append(SALTCHARS.charAt(index));
+    }
+    String saltStr = salt.toString();
+    return saltStr;
   }
 
 }
