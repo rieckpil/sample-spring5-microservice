@@ -1,7 +1,6 @@
 package de.rieckpil.repositories;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import de.rieckpil.domain.Country;
@@ -19,9 +18,11 @@ public class HibernateRepository {
 
     log.info(entityManager.toString());
     Session session = entityManager.unwrap(Session.class);
-    EntityManagerFactory entityManagerFactory = entityManager.getEntityManagerFactory();
+    session.beginTransaction();
+    session.getTransaction().commit();
 
     long primaryKey = 6L;
+    entityManager.getTransaction().begin();
     Country countryFromHibernate = entityManager.find(Country.class, primaryKey);
 
     if (countryFromHibernate == null) {
@@ -32,6 +33,7 @@ public class HibernateRepository {
       log.info("Getting entity from database while using javax.persitence.EntityManager: {}",
           countryFromHibernate.toString());
     }
+    entityManager.getTransaction().commit();
 
   }
 }
