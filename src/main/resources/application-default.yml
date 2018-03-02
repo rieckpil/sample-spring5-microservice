@@ -16,8 +16,13 @@ spring:
 management:
   security:
     enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
 security:
   basic:
     enabled: true
-logging:
-  file: sample-spring5-microservice.log
