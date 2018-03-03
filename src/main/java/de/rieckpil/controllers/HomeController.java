@@ -1,17 +1,21 @@
 package de.rieckpil.controllers;
 
+import java.io.IOException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import de.rieckpil.repositories.HibernateRepository;
+import de.rieckpil.services.PdfService;
 
 @Controller
 public class HomeController {
   
   private final HibernateRepository hibernateRepository;
+  private final PdfService pdfService;
   
-  public HomeController(HibernateRepository hibernateRepository) {
+  public HomeController(HibernateRepository hibernateRepository, PdfService pdfService) {
     this.hibernateRepository = hibernateRepository;
+    this.pdfService = pdfService;
   }
 
   @GetMapping("/")
@@ -33,5 +37,11 @@ public class HomeController {
   public @ResponseBody String getHibernateInformation() {
     hibernateRepository.storeCountry();
     return "Hibernate rulez!";
+  }
+  
+  @GetMapping("/pdf")
+  public @ResponseBody String createPdf() throws IOException {
+    pdfService.createSamplePdf();
+    return "created!";
   }
 }
