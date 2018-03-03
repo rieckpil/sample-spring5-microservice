@@ -57,6 +57,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('com.google.protobuf:protobuf-java:3.5.1')
 	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+	compile('org.apache.pdfbox:pdfbox:2.0.4')
 	compile('org.postgresql:postgresql:9.4-1206-jdbc42')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
 	compile('org.aspectj:aspectjweaver:1.8.13')
