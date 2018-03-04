@@ -26,3 +26,8 @@ management:
 security:
   basic:
     enabled: true
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
