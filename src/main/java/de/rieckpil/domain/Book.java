@@ -6,10 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Wither;
 
 @Entity
 @Data
+@Wither
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book {
   
   @Id
