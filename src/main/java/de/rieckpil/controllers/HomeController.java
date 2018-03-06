@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.itextpdf.text.DocumentException;
 import de.rieckpil.repositories.HibernateRepository;
 import de.rieckpil.services.PdfService;
 
@@ -40,7 +41,7 @@ public class HomeController {
   }
   
   @GetMapping("/pdf")
-  public @ResponseBody String createPdf() throws IOException {
+  public @ResponseBody String createPdf() throws IOException, DocumentException {
     pdfService.createSamplePdf();
     return "created!";
   }
