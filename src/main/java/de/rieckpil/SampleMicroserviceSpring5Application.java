@@ -3,6 +3,7 @@ package de.rieckpil;
 import javax.sql.DataSource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
@@ -19,6 +20,7 @@ import de.rieckpil.repositories.BookRepository;
 import de.rieckpil.resolver.BookResolver;
 import de.rieckpil.resolver.Mutation;
 import de.rieckpil.resolver.Query;
+import io.micrometer.core.instrument.MeterRegistry;
 
 @SpringBootApplication
 @EnableAsync
@@ -34,6 +36,11 @@ public class SampleMicroserviceSpring5Application {
   public DataSource standaloneDefaultDataSource() {
     return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
         .addScript("classpath:scripts/h2-schema.sql").build();
+  }
+
+  @Bean
+  public MeterRegistryCustomizer<MeterRegistry> commonTags() {
+    return (registry) -> registry.config().commonTags("application", "webinar");
   }
 
   @Bean
