@@ -3,6 +3,7 @@ package de.rieckpil.services;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import de.rieckpil.domain.Country;
@@ -14,11 +15,13 @@ import de.rieckpil.repositories.CountryRepository;
 public class CountryServiceImpl implements CountryService {
 
   private CountryRepository countryRepository;
+  private  ApplicationEventPublisher publisher;
   private CountryMapper countryMapper;
 
-  public CountryServiceImpl(CountryRepository countryRepository, CountryMapper countryMapper) {
+  public CountryServiceImpl(CountryRepository countryRepository, CountryMapper countryMapper, ApplicationEventPublisher publisher) {
     this.countryRepository = countryRepository;
     this.countryMapper = countryMapper;
+    this.publisher = publisher;
   }
 
   @Override
@@ -50,6 +53,7 @@ public class CountryServiceImpl implements CountryService {
     try {
       Country countryToSave = countryMapper.countryDTOToCountry(country);
       countryRepository.save(countryToSave);
+      publisher.publishEvent(countryToSave);
     } catch (DataIntegrityViolationException ex) {
       System.out.println("## catched: " + ex.getMessage());
       throw new RuntimeException("Constraint violations!");
