@@ -1,5 +1,6 @@
 package de.rieckpil.config;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -28,6 +29,10 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
     
 		http
 		  .authorizeRequests()
+		    .requestMatchers(EndpointRequest.to("prometheus"))
+		    .permitAll()
+		.and()
+		  .authorizeRequests()
 		  .antMatchers("/api/**", "/h2-console/**", "/webjars/**", "/signUp")
 		  .permitAll()
 		 .and()
@@ -43,6 +48,8 @@ public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 		      .loginPage("/loginPage")
 		      .loginProcessingUrl("/login")
 		      .permitAll()
+		 .and()
+		    .httpBasic()
 		 .and()
 		    .logout()
 		    .permitAll()
