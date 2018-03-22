@@ -15,8 +15,8 @@ public class EffectiveJavaController {
   private Timer regularTime;
 
   public EffectiveJavaController(MeterRegistry registry) {
-    this.primitiveTimer = Timer.builder("dps.primitive.timer").description("Counting the time").tags("region", "time").register(registry);
-    this.regularTime = Timer.builder("dps.regular.timer").description("Counting the time").tags("region", "time").register(registry);
+    this.primitiveTimer = Timer.builder("calculation.primitive.timer").description("Counting the time").tags("region", "time").register(registry);
+    this.regularTime = Timer.builder("calculation.regular.timer").description("Counting the time").tags("region", "time").register(registry);
   }
 
   @GetMapping("/primitive")
