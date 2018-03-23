@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.PostConstruct;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Controller;
 import lombok.extern.slf4j.Slf4j;
@@ -53,14 +54,19 @@ public class StockHandler {
 
   @MessageMapping("/addStock")
   public void sayHello(Stock stock) {
-    
-    if(stock.getCode() == null || stock.getCode().isEmpty() || stock.getPrice() == 0.0) {
+
+    if (stock.getCode() == null || stock.getCode().isEmpty() || stock.getPrice() == 0.0) {
       log.warn(String.format("Unable to add stock: %s", stock.toString()));
-    }else {
+    } else {
       stocks.add(stock);
       updateAndBroadcastPrices();
     }
-    
+
+  }
+
+  @SubscribeMapping("/price")
+  public void onSubscribe() {
+    System.out.println("## subscribed!");
   }
 
   @PostConstruct
