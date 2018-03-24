@@ -55,6 +55,9 @@
 							<div class="col-md-6">
 								<h1 class="panel-title">Latest Stock Prices!</h1>
 							</div>
+							<div class="col-md-offset-3 col-md-3">
+								<h1 class="panel-title">User ID: <span id="userId"></span></h1>
+							</div>
 						</div>
 					</div>
 					<div class="panel-body">
@@ -107,8 +110,14 @@
 			}
 		}
 		
+		function displayMetaData(frame) {
+			console.log(frame);
+			$('#userId').html(JSON.parse(frame.body).userId);
+		}
+		
 		var connectCallback = function () {
 			stomp.subscribe('/topic/price', displayStockPrice);
+			stomp.subscribe('/app/metadata/heat/M1', displayMetaData);
 		};
 		
 		var errorCallback = function (error) {
