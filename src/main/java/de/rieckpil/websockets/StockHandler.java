@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -68,6 +69,12 @@ public class StockHandler {
 			updateAndBroadcastPrices();
 		}
 
+	}
+	
+	@MessageMapping("/application")
+	public String testAppEndpoint(Message msg) {
+		System.out.println(msg);
+		return "helloWorld!";
 	}
 
 	@SubscribeMapping("/metadata/{widgetData}/{machineName}")
