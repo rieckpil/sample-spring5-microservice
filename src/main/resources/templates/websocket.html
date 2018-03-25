@@ -115,9 +115,14 @@
 			$('#userId').html(JSON.parse(frame.body).userId);
 		}
 		
+		function logOutput(frame) {
+			console.log(frame);
+		}
+		
 		var connectCallback = function () {
 			stomp.subscribe('/topic/price', displayStockPrice);
 			stomp.subscribe('/app/metadata/heat/M1', displayMetaData);
+			stomp.subscribe('/topic/application', logOutput);
 		};
 		
 		var errorCallback = function (error) {
@@ -132,6 +137,7 @@
 				var jsonstr = JSON.stringify({ 'code': $('#code').val(),
 				'price': Number($('#price').val()) });
 				stomp.send("/app/addStock", {}, jsonstr);
+				stomp.send("/app/application", {}, '12345');
 				return false;
 			});
 		});
