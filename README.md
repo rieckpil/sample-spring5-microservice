@@ -20,3 +20,19 @@ Running `protoc` for compiling `.proto` files to Java classes:
 ```
 protoc -I=. --java_out=../java nameOfProto.proto
 ```
+
+## Git tags
+
+### Create a tag
+
+```
+git tag -a v1.0.0 -m "tag message"
+git push origin --tags
+```
+
+### Remove a tag
+
+```
+git tag -d tagName
+git push origin :refs/tags/tagName
+```
