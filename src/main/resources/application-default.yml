@@ -35,3 +35,5 @@ graphiql:
    mapping: /graphiql 
    endpoint: /graphql
    enabled: true
+logging:
+  file: sample-spring5-microservice.log
