@@ -72,7 +72,7 @@ public class StockHandler {
 	}
 	
 	@MessageMapping("/application")
-	public String testAppEndpoint(Message msg) {
+	public String testAppEndpoint(Message<String> msg) {
 		System.out.println(msg);
 		return "helloWorld!";
 	}
