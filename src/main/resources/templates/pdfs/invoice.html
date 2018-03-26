@@ -1,14 +1,14 @@
 <html>
 <head>
 <meta charset="UTF-8" content="html" />
-<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="classpath:static/style.css" />
 <title>My Invoice</title>
 </head>
 <body>
 
 	<div class='header' th:include="pdfs/header::header"></div>
 	<h1>Hi! This invoice is for [[${name}]]!</h1>
-	<img class="logo" src="logo.png" alt="invoiceimage" />
+	<img class="logo" src="classpath:static/logo.png" alt="invoiceimage" />
 	<br />
 	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
 		diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
