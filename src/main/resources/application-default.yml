@@ -1,6 +1,9 @@
 spring:
   datasource:
     platform: h2
+  output:
+    ansi:
+      enabled: always
   http:
     multipart:
       max-file-size: 10MB
