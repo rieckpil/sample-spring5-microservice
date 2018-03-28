@@ -52,6 +52,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mail')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile("org.springframework.boot:spring-boot-devtools")
+	compile("org.springframework.boot:spring-kafka-test")
+	compile("org.springframework.boot:spring-kafka")
 	compile("org.springframework.boot:spring-boot-starter-websocket")
 	compile('org.springframework.boot:spring-boot-starter-batch')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
