@@ -16,6 +16,10 @@ spring:
   h2:
     console:
       enabled: true
+  kafka:
+    consumer:
+      group-id: foo
+      auto-offset-reset: earliest
 management:
   security:
     enabled: true
