@@ -8,6 +8,6 @@
 		resource="org/springframework/boot/logging/logback/console-appender.xml" />
 	<root level="INFO">
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE" />
+		<appender-ref ref="FILE" additivity="true" />
 	</root>
 </configuration>
