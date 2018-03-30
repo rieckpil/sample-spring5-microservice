@@ -69,6 +69,7 @@ dependencies {
 	compile('com.graphql-java:graphql-spring-boot-starter:3.10.0')
   	compile('com.graphql-java:graphiql-spring-boot-starter:3.10.0')
   	compile('com.graphql-java:graphql-java-tools:4.3.0')
+  	compile('org.flywaydb:flyway-core')
   	apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
     apt('org.projectlombok:lombok:1.16.18')
 	runtime('com.h2database:h2')
