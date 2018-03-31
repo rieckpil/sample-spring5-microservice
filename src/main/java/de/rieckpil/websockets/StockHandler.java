@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -25,13 +26,16 @@ public class StockHandler {
 
 	private final TaskScheduler taskScheduler;
 	private final SimpMessagingTemplate simpMessagingTemplate;
+	private final KafkaTemplate<String, String> template;
 
 	private List<Stock> stocks = new ArrayList<Stock>();
 	private Random random = new Random(System.currentTimeMillis());
 
-	public StockHandler(TaskScheduler taskScheduler, SimpMessagingTemplate simpMessagingTemplate) {
+	public StockHandler(TaskScheduler taskScheduler, SimpMessagingTemplate simpMessagingTemplate,
+			KafkaTemplate<String, String> template) {
 		this.taskScheduler = taskScheduler;
 		this.simpMessagingTemplate = simpMessagingTemplate;
+		this.template = template;
 
 		stocks.add(new Stock("SHA", 13.0));
 		stocks.add(new Stock("ADI", 131.0));
@@ -62,6 +66,8 @@ public class StockHandler {
 	@MessageMapping("/addStock")
 	public void sayHello(Stock stock) {
 
+		template.send("myTopic", stock.toString());
+
 		if (stock.getCode() == null || stock.getCode().isEmpty() || stock.getPrice() == 0.0) {
 			log.warn(String.format("Unable to add stock: %s", stock.toString()));
 		} else {
@@ -70,7 +76,7 @@ public class StockHandler {
 		}
 
 	}
-	
+
 	@MessageMapping("/application")
 	public String testAppEndpoint(Message<String> msg) {
 		System.out.println(msg);
@@ -88,11 +94,8 @@ public class StockHandler {
 
 	@PostConstruct
 	private void broadcastPeriodically() {
-		taskScheduler.scheduleAtFixedRate(new Runnable() {
-			@Override
-			public void run() {
-				updateAndBroadcastPrices();
-			}
+		taskScheduler.scheduleAtFixedRate(() -> {
+			updateAndBroadcastPrices();
 		}, 1000);
 	}
 
